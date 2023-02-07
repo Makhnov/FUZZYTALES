@@ -18,11 +18,11 @@
                         echo "<img src=".$datas[$i].">";
                         echo "<div class="."tags".">";
                             echo "<ul>";
-                                // echo "<li><a href=".">".$datas[$i+1]."</a></li>";
-                                // echo "<li><a href=".">".$datas[$i+1]."</a></li>";
-                                // echo "<li><a href=".">".$datas[$i+1]."</a></li>";
-                                // echo "<li><a href=".">".$datas[$i+1]."</a></li>";
-                                // echo "<li><a href=".">".$datas[$i+1]."</a></li>";
+                                echo "<li><a href=".">".$datas[$i+1]."</a></li>";
+                                echo "<li><a href=".">".$datas[$i+1]."</a></li>";
+                                echo "<li><a href=".">".$datas[$i+1]."</a></li>";
+                                echo "<li><a href=".">".$datas[$i+1]."</a></li>";
+                                echo "<li><a href=".">".$datas[$i+1]."</a></li>";
                             echo "</ul>";
                         echo "</div>";
                     echo "</div>";
