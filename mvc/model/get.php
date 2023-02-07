@@ -1,4 +1,12 @@
 <?php
+
+/*
+//Connexion à la BDD fuzzyTales
+$bdd = new PDO('mysql:host=localhost;dbname=fuzzyTales','root','',
+array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$bdd->exec("set names utf8");
+*/
+
 // Afficher le nombre d'utilisateurs qui ont aimé une photo
 function nbLikes($bdd,$id_utilisateur,$id_image){
     try{
@@ -89,21 +97,35 @@ function search($bdd,$recherche){
 
 // IMAGES //
 
-// function getImages ($bdd, ){
-//     try{
-//         $requete = $bdd->prepare("SELECT count(:utilisateur_suiveur) as 'Abonnés' from suivre where utilisateur_suivi=:id_utilisateur");
-//         $requete->execute(array(
-//             'utilisateur_suiveur' => $utilisateur_suiveur,
-//             'utilisateur_suivi' => $id_utilisateur
-//         ));
-//         $requete->closeCursor();
-//         return $requete;
-//     }
-//     catch(Exception $e){
-//         die('Erreur : '.$e->getMessage());
-//     }
-// }
+function getImagesAlgo ($bdd){
+    try{
+        $requete = $bdd->query("SELECT url_image, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC"); // ORDER BY SUM(aimer.id_image)
+        $result = $requete->fetchAll();
 
+        $j = 0;
+        $tabT = [];
+        $tabR = [];
+
+        foreach($result as $tab) {
+
+            $like = $tab[1];
+
+            if ($like > 1) {
+                array_push($tabT, $tab[0]);
+                array_push($tabT, $tab[1]);
+                array_push($tabR, $tabT);
+            }
+
+            $j++;
+        }
+
+        return $tabR;
+    }
+
+    catch(Exception $e){
+        die('Erreur : '.$e->getMessage());
+    }
+}
 
 // *** //
 
