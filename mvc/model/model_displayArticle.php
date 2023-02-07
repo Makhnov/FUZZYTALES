@@ -8,7 +8,6 @@ $response = $bdd->query('
 $datas = [];
 
 while($row = $response->fetch()){
-    print_r($row);
     array_push($datas,$row['url_image']);
     array_push($datas,$row['titre_image']);
 }
