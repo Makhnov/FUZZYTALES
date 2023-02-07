@@ -1,0 +1,253 @@
+:root {
+    //GENERAL
+    --mainColor1:rgb(245, 220, 220);
+    --mainColor0:rgb(245, 80, 80);
+
+    // LIVRE
+    --bookSize:clamp(200px, 60vh, 600px);
+    --bookBorder:rgb(50, 50, 50);
+    --bookPage:whitesmoke;
+}
+
+html, body {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--mainColor1);
+    overflow-x:hidden;
+}
+
+nav, ul, li {
+    all:initial;
+    display: block;
+    margin:0;
+    padding:0;
+}
+
+header {
+    position: fixed;
+    z-index: 10;
+    height:100px;
+    width:100vw;
+    background-color: var(--mainColor0);
+
+    display: grid;
+    place-content: center;
+    grid-template-rows: 10px 80px 10px;
+    grid-template-columns: 100px calc(100vw - 250px) 150px;
+}
+
+nav {
+    grid-row:2;
+    grid-column: 3;
+    align-self: center;
+    justify-self: center;
+
+    height: 100px;
+    width: 100px;
+    transform-origin:center;
+
+    ul {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        display: grid;
+        grid-template-columns: 50px 50px;
+        grid-template-rows: 50px 50px;
+    }
+}
+
+#ul {
+    all:initial;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    height:36px;
+    width:36px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background:rgb(255, 201, 180);
+    box-sizing: border-box;
+    border:3px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+        
+    &:checked ~ li.upload {
+        height: 100px;
+        width: 50px;
+        clip-path: circle(35px at left center);          
+    }
+
+    &:checked ~ li.album {
+        height: 50px;
+        width: 50px;            
+        clip-path: circle(35px at right bottom);                     
+    }
+
+    &:checked ~ li.profil {
+        height: 50px;
+        width: 50px;               
+        clip-path: circle(35px at right top)            
+    }
+}
+
+nav ul li {
+    position: absolute;
+    transition: .75s;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+        filter:brightness(1.1)
+    }
+}
+
+nav ul li.upload {
+    grid-column: 2;
+    grid-row:1 / span 2;
+    height: 100px;
+    width: 50px;
+    background:radial-gradient(circle at left center,
+        var(--mainColor0) 15px, 
+        var(--mainColor1) 32px,
+        black 32px
+    );            
+    clip-path: circle(18px at left center);          
+}
+
+nav ul li.album {
+    grid-column: 1;
+    grid-row:1;
+    height: 50px;
+    width: 50px;   
+    background:radial-gradient(circle at right bottom,
+        var(--mainColor0) 15px, 
+        var(--mainColor1) 32px,
+        black 32px
+    );           
+    clip-path: circle(18px at right bottom);                     
+}
+
+nav ul li.profil {
+    grid-column: 1;
+    grid-row:2;
+    height: 50px;
+    width: 50px;    
+    background:radial-gradient(circle at right top,
+        var(--mainColor0) 15px, 
+        var(--mainColor1) 32px,
+        black 32px
+    );              
+    clip-path: circle(18px at right top)            
+}
+
+// MODIFIER LABEL SI INPUT //
+
+#menuBook {
+    all:initial;
+    align-self: center;
+    justify-self: center;
+    grid-row:2;
+    grid-column: 1;
+
+    cursor: pointer;
+    background-image:url('../divers/img/inputBook1.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    height:100px;
+    width: 100px;
+    //clip-path: circle(0%);
+
+    &:hover {
+        transform:scale(1.1);
+    }
+
+    &:checked {
+        background-image:url('../divers/img/inputBook2.png');
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+
+    // &.loaded {
+    //     animation: fuzzyTales2 4s linear;
+    // }
+}
+
+/*#book {
+    perspective: 1200px;
+    display: grid;
+    place-content: center;
+}*/
+
+#book {
+
+    padding-top: 100px;
+    height: calc(100vh - 200px);
+    width: 100vw;
+    background-color:var(--mainColor1);
+}
+
+// header h1.loaded {
+//     animation: fuzzyTales1 8s linear forwards;
+// }
+
+// @keyframes fuzzyTales1 {
+//     0% {
+//         transform: none;
+//         font-size: 5rem;
+//     }
+
+//     15% {
+//         transform: none;
+//         font-size: 5rem;
+//     }
+
+//     @for $i from 0 to 50 {
+//         #{($i + 25)+"%"} {
+//             transform: translateX(-1vw * ((($i * $i) / -10) + 200));
+//         }
+//     }
+
+//     100% {
+//         transform: translateX(-50vw);
+//     }
+// }
+
+// @keyframes fuzzyTales2 {
+//     0% {
+//         clip-path: circle(0%);
+//     }
+//     66% {
+//         clip-path: circle(0%);
+//     }
+//     100% {
+//         clip-path: circle(100%);
+//     }
+// }
+
+
+#newb {
+    height: calc(100vh - 100px);
+    width: 100vw;
+    background-color: azure;
+}
+
+#notNewb {
+    height: calc(100vh - 200px);
+    width: 100vw;
+    padding-bottom: 100px;
+    background-color: var(--mainColor1);
+}
+
+footer {
+    height: 100px;
+    width: 100vw;
+    background-color: var(--mainColor0);
+}
