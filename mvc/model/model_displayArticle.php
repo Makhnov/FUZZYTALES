@@ -3,7 +3,7 @@
 $response = $bdd->query('
     select url_image, titre_image
     from images
-    limit 10;
+    limit 14;
 ');
 $datas = [];
 

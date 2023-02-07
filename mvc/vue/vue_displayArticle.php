@@ -15,7 +15,7 @@
         while(isset($datas[$i+1])){
                 echo "<div class="."card".">";
                     echo "<div class="."cardContent".">";
-                        echo "<img src=".$datas[$i].">";
+                        echo "<img src=".$datas[$i]."?random=".rand(1,1000).">";
                         echo "<div class="."tags".">";
                             echo "<ul>";
                                 echo "<li><a href=".">".$datas[$i+1]."</a></li>";
