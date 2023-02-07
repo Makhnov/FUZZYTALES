@@ -99,13 +99,15 @@ header {
     background-color: rgb(196, 195, 195);
     border-radius: 10px;
 }
-
+.cardContent img {
+    width: 100%;
+}
 .cardContent .tags {
     display: flex;
     align-items: center;
     position: absolute;
     overflow-x: hidden;
-    background-color: rgba(92, 92, 92, 0.7);
+    background-color: rgba(245, 80, 80, .5);
     height: 30px;
     width: 100%;
     bottom: 0;
@@ -131,7 +133,7 @@ a:visited {
     color: white;
 }
 .tags ul a{
-    background-color: rgba(68, 68, 68, 0.8);
+    background-color: rgba(245, 80, 80, .8);
     border-radius: 5px;
     padding: 3px 5px;
     text-decoration: none;
