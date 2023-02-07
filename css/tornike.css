@@ -1,0 +1,235 @@
+*,::before,::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+header {
+    height: 100px;
+    width: 100%;
+    background-color: #F55050;
+}
+
+/* 
+//  ██████  ██████   ██████  ███████ ██ ██      ███████ 
+//  ██   ██ ██   ██ ██    ██ ██      ██ ██      ██      
+//  ██████  ██████  ██    ██ █████   ██ ██      █████   
+//  ██      ██   ██ ██    ██ ██      ██ ██      ██      
+//  ██      ██   ██  ██████  ██      ██ ███████ ███████  
+*/                                                                                             
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+.user .img {
+    background-color: rgb(56, 55, 55);
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+#follow {
+    all: unset;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #F55050;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.gallerySect {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    width: 1450px;
+    margin: 15px;
+    gap: 15px;
+}
+
+.sort {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+}
+.galSort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 1450px;
+}
+.sortBy {
+    position: absolute;
+    margin-inline: 5%;
+    right: 0;
+    bottom: 0;
+}
+/*Sort by dropdown style*/
+.card {
+    position: relative;
+    /* margin: 15px 15px; */
+    /* max-width: 250px; */
+    overflow-x: hidden;
+    width: fit-content;
+    max-width: 250px;
+}
+/* hidden cards*/
+.hiddenCard
+{
+    width: 250px;
+    height: 0;
+}
+.cardContent {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    height: 350px;
+    background-color: rgb(196, 195, 195);
+    border-radius: 10px;
+}
+
+.cardContent .tags {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    overflow-x: hidden;
+    background-color: rgba(92, 92, 92, 0.7);
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+    visibility: hidden;
+}
+
+.card:hover .tags {
+    visibility:visible;
+}
+
+.tags ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    width:250px;
+    float:left;
+    font-size:15px;
+    font-family:arial;
+    padding:0 5px;
+}
+
+a:visited {
+    color: white;
+}
+.tags ul a{
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    padding: 3px 5px;
+    text-decoration: none;
+}
+
+.card .ionic {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    gap: 10px;
+    transform: scale(0);
+    cursor: pointer;
+}
+
+.card:hover > .ionic {
+    transform: scale(1);
+}
+ion-icon {
+    color: #F55050;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: rgba(0, 0, 0,.5);
+}
+
+/* .card .tags {
+    /* position: absolute;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(88, 88, 88,.5);
+    bottom: 0; 
+} */
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #F55050;
+    margin-top: 30px;
+}
+
+
+
+
+/* 
+//   ██████   █████  ██      ██      ███████ ██████  ██    ██ 
+//  ██       ██   ██ ██      ██      ██      ██   ██  ██  ██  
+//  ██   ███ ███████ ██      ██      █████   ██████    ████   
+//  ██    ██ ██   ██ ██      ██      ██      ██   ██    ██    
+//   ██████  ██   ██ ███████ ███████ ███████ ██   ██    ██    
+*/
+/* search section */
+.search {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    width: 100%;
+    padding-top: 20px;
+    /* background-color: rgba(0, 0, 0, .2); */
+}
+
+/* matched items + sort items */
+.search .matches, .sortItems {
+    display: flex;
+    align-items: flex-end;
+    margin: 15px 15%;
+}
+/* search input */
+.searchBar form {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 35px;
+}
+
+/* search input styling */
+.searchBar form input {
+    all: unset;
+    width: 250px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-right: 35px;
+}
+/* place search button on top of search input */
+.searchBar form button {
+    all: unset;
+    border-radius: 15px;
+    transform: translate(-35px,2px);
+}
+/* searchbar outline while active */
+form input:focus-within { 
+    outline: 2px solid #F55050; 
+}
+
+.searchBar form button ion-icon{
+    background: none;
+    font-size: 24px;
+}
