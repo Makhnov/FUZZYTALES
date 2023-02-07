@@ -79,4 +79,33 @@ function search($bdd,$recherche){
         die('Erreur : '.$e->getMessage());
     }
 }
+
+
+
+
+
+
+// SELECTS GENERAUX //
+
+// IMAGES //
+
+// function getImages ($bdd, ){
+//     try{
+//         $requete = $bdd->prepare("SELECT count(:utilisateur_suiveur) as 'Abonnés' from suivre where utilisateur_suivi=:id_utilisateur");
+//         $requete->execute(array(
+//             'utilisateur_suiveur' => $utilisateur_suiveur,
+//             'utilisateur_suivi' => $id_utilisateur
+//         ));
+//         $requete->closeCursor();
+//         return $requete;
+//     }
+//     catch(Exception $e){
+//         die('Erreur : '.$e->getMessage());
+//     }
+// }
+
+
+// *** //
+
 ?>
+

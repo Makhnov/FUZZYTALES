@@ -1,0 +1,27 @@
+body {
+    height:100vh;
+    width: 100vw;
+    display:flex;
+    place-content: center;
+}
+
+#image1  {
+    height: 700px;
+    width:500px;
+    border: 2px solid black;
+    background-image: url('https://picsum.photos/440/660');
+    background-size:contain;
+    background-position: 100% center;
+    background-repeat: no-repeat;
+}
+
+#image2  {
+    height: 700px;
+    width:500px;
+    border: 2px solid black;
+    background-image: url('https://picsum.photos/2000/3000');
+    background-size:contain;
+    background-position: 100% center;
+    background-repeat: no-repeat;
+}
+

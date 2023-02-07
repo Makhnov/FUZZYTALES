@@ -174,57 +174,57 @@ header h1 {
 .fpage:nth-of-type(6)::after {
   top: 0;
   left: 0;
-  background: url("../../../divers/img/imgLWait1.jpg");
+  background: url("../divers/img/imgLWait1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 @-webkit-keyframes waitingLeft {
   0% {
-    background: url("../../../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   20% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   29% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   31% {
-    background: url("../../../divers/img/imgLWait2.jpg");
+    background: url("../divers/img/imgLWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   40% {
-    background: url("../../../divers/img/imgLWait2.jpg");
+    background: url("../divers/img/imgLWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   97% {
-    background: url("../../../divers/img/imgLWait2.jpg");
+    background: url("../divers/img/imgLWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   98% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   100% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -232,50 +232,50 @@ header h1 {
 
 @keyframes waitingLeft {
   0% {
-    background: url("../../../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   20% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   29% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   31% {
-    background: url("../../../divers/img/imgLWait2.jpg");
+    background: url("../divers/img/imgLWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   40% {
-    background: url("../../../divers/img/imgLWait2.jpg");
+    background: url("../divers/img/imgLWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   97% {
-    background: url("../../../divers/img/imgLWait2.jpg");
+    background: url("../divers/img/imgLWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   98% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   100% {
-    background: url("../../../divers/img/imgLWait1.jpg");
+    background: url("../divers/img/imgLWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -287,45 +287,45 @@ header h1 {
 
 @-webkit-keyframes waitingRight {
   0% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   2% {
-    background: url("../../../divers/img/imgRWait1.jpg");
+    background: url("../divers/img/imgRWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   70% {
-    background: url("../../../divers/img/imgRWait1.jpg");
+    background: url("../divers/img/imgRWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   79% {
-    background: url("../../../divers/img/imgRWait1.jpg");
+    background: url("../divers/img/imgRWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   81% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   90% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   100% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -333,45 +333,45 @@ header h1 {
 
 @keyframes waitingRight {
   0% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   2% {
-    background: url("../../../divers/img/imgRWait1.jpg");
+    background: url("../divers/img/imgRWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
   70% {
-    background: url("../../../divers/img/imgRWait1.jpg");
+    background: url("../divers/img/imgRWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   79% {
-    background: url("../../../divers/img/imgRWait1.jpg");
+    background: url("../divers/img/imgRWait1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   81% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     opacity: 0.9;
   }
   90% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(0px);
     opacity: 1;
   }
   100% {
-    background: url("../../../divers/img/imgRWait2.jpg");
+    background: url("../divers/img/imgRWait2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -437,7 +437,7 @@ header h1 {
 }
 
 .sliceL {
-  background: url("../../../divers/img/imgL.jpg");
+  background: url("../divers/img/imgL.jpg");
   background-position: calc(0.8080808081 * var(--bookSize)) center;
   background-size: calc(0.7070707071 * var(--bookSize)) var(--bookSize);
   right: -0.5px;
@@ -556,7 +556,7 @@ header h1 {
   }
 }
 .sliceR {
-  background: url("../../../divers/img/imgLWait1.jpg");
+  background: url("../divers/img/imgLWait1.jpg");
   background-size: calc(0.7070707071 * var(--bookSize)) var(--bookSize);
   right: 0px;
   background-position: calc(0.101010101 * var(--bookSize)) center;
@@ -573,7 +573,7 @@ header h1 {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   transform-origin: center;
-  background: url("../../../divers/img/imgRFront.jpg");
+  background: url("../divers/img/imgRFront.jpg");
   background-size: calc(0.7070707071 * var(--bookSize)) var(--bookSize);
   background-position: calc(0.7070707071 * var(--bookSize)) center;
 }
