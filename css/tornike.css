@@ -81,7 +81,7 @@ header {
     /* margin: 15px 15px; */
     /* max-width: 250px; */
     overflow-x: hidden;
-    width: fit-content;
+    width: 250px;
     max-width: 250px;
 }
 /* hidden cards*/
@@ -123,7 +123,7 @@ header {
     width:250px;
     float:left;
     font-size:15px;
-    font-family:arial;
+
     padding:0 5px;
 }
 
@@ -131,10 +131,11 @@ a:visited {
     color: white;
 }
 .tags ul a{
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(68, 68, 68, 0.8);
     border-radius: 5px;
     padding: 3px 5px;
     text-decoration: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .card .ionic {

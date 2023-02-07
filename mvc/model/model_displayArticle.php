@@ -3,12 +3,11 @@
 $response = $bdd->query('
     select url_image, titre_image
     from images
-    limit 10;
+    limit 15;
 ');
 $datas = [];
 
 while($row = $response->fetch()){
-    print_r($row);
     array_push($datas,$row['url_image']);
     array_push($datas,$row['titre_image']);
 }

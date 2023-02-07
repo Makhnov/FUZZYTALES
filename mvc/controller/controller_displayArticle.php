@@ -12,6 +12,6 @@ include('../model/connect.php');
 include('../model/model_displayArticle.php');
 include('../vue/vue_displayArticle.php');
 ?>
-<script src="js.js"></script>
+<script src="../../js/tornike.js"></script>
 </body>
 </html>
