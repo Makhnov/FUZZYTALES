@@ -11,15 +11,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./css/book.css">
-    <link rel="stylesheet" href="./css/accueil.css">
-    <link rel="icon" type="image/x-icon" href="./img/favbook.ico">
+    <link rel="stylesheet" href="../../css/book.css">
+    <link rel="stylesheet" href="../../css/accueil.css">
+    <link rel="icon" type="image/x-icon" href="../../divers/img/favbook.ico">
 
 </head>
 
 <body onload="fuzzyTales()">
     <header>
-        <!-- <h1>FUZZY TALES</h1> -->
+        <h1>FUZZY TALES</h1>
         <label for="readBook" id="menuBook"></label>
         <nav>
             <ul>
@@ -74,14 +74,15 @@
             <div class="fpage droite"></div>
     </section>
 
-    <section id="newb">
-    </section>
+    <?php
+    include('../vue/newbie.php'); // INFORMATIONS NON INSCRITS
+    include('../vue/notNewbie.php'); // INFORMATIONS INSCRITS 
+    ?>
 
-    <section id="notNewb">
-    </section>
+
 
     <footer></footer>
-    <script src="./js/book.js"></script>
+    <script src="../../js/book.js"></script>
 </body>
 
 </html>
