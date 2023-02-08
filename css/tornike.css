@@ -18,28 +18,75 @@ header {
 //  ██      ██   ██ ██    ██ ██      ██ ██      ██      
 //  ██      ██   ██  ██████  ██      ██ ███████ ███████  
 */                                                                                             
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 50px;
+    gap: 20px;
+}
 .user {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
-    gap: 20px;
-}
-.user .img {
-    background-color: rgb(56, 55, 55);
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-}
-#follow {
-    all: unset;
-    width: 100px;
-    height: 30px;
-    border-radius: 15px;
+    position: relative;
+    width: 550px;
     background-color: #F55050;
+    gap: 5px;
+    border-radius: 10px;
+}
+.userImg {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    width: 225px;
+    height: 225px;
+    background-color: bisque;
+    border: 3px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.userImg img {
+    height: 100%;
+}
+.userName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 110px;
+    height: 40px;
+    width: 100%;
+}
+
+.followUser {
+    all: unset;
+    width: 70px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
     text-align: center;
-    color: white;
+    padding: 5px;
     cursor: pointer;
+}
+.userDescription {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+.followers, .following, .numImages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 30%;
+    height: 45px;
+    border-radius: 10px;
 }
 
 .gallerySect {
@@ -56,58 +103,38 @@ header {
     gap: 15px;
 }
 
-.sort {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 70px;
-}
-.galSort {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 1450px;
-}
-.sortBy {
-    position: absolute;
-    margin-inline: 5%;
-    right: 0;
-    bottom: 0;
-}
-/*Sort by dropdown style*/
 .card {
+    background: transparent;
     position: relative;
-    /* margin: 15px 15px; */
-    /* max-width: 250px; */
-    overflow-x: hidden;
+    overflow: hidden;
     width: 250px;
-    max-width: 250px;
+    height: 300px;
 }
-/* hidden cards*/
-.hiddenCard
-{
-    width: 250px;
-    height: 0;
+img.landscape {
+    height: 100%; 
+    width: auto;
+}
+img.portrait {
+    height: auto;
+    width:100%; 
 }
 .cardContent {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
-    overflow-x: hidden;
-    height: 350px;
+    overflow: hidden;
     background-color: rgb(196, 195, 195);
     border-radius: 10px;
+    height: 100%;
 }
-.cardContent img {
-    width: 100%;
-}
+
 .cardContent .tags {
     display: flex;
     align-items: center;
     position: absolute;
     overflow-x: hidden;
-    background-color: rgba(245, 80, 80, .5);
+    background-color: grey;
     height: 30px;
     width: 100%;
     bottom: 0;
@@ -121,11 +148,11 @@ header {
 .tags ul {
     display: flex;
     list-style: none;
-    gap: 10px;
+    gap: 5px;
     width:250px;
     float:left;
     font-size:15px;
-
+    font-family:arial;
     padding:0 5px;
 }
 
@@ -133,11 +160,10 @@ a:visited {
     color: white;
 }
 .tags ul a{
-    background-color: rgba(245, 80, 80, .8);
+    background-color: rgba(0, 0, 0, .2);
     border-radius: 5px;
-    padding: 3px 5px;
+    padding: 3px 10px;
     text-decoration: none;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .card .ionic {
@@ -164,21 +190,12 @@ ion-icon {
     background-color: rgba(0, 0, 0,.5);
 }
 
-/* .card .tags {
-    /* position: absolute;
-    width: 100%;
-    height: 30px;
-    background-color: rgba(88, 88, 88,.5);
-    bottom: 0; 
-} */
 footer {
     width: 100%;
     height: 200px;
     background-color: #F55050;
     margin-top: 30px;
 }
-
-
 
 
 /* 
@@ -235,4 +252,41 @@ form input:focus-within {
 .searchBar form button ion-icon{
     background: none;
     font-size: 24px;
+}
+
+/* 
+███    ███  ██████  ██████   █████  ██      
+████  ████ ██    ██ ██   ██ ██   ██ ██      
+██ ████ ██ ██    ██ ██   ██ ███████ ██      
+██  ██  ██ ██    ██ ██   ██ ██   ██ ██      
+██      ██  ██████  ██████  ██   ██ ███████  
+*/
+
+.imgZoom {
+    display: none;
+}
+.imgZoom.active{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1200px;
+    height: 800px;
+    background-color: rgb(155, 155, 155);
+}
+
+.imgZoom .modalImage{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(25, 25, 25);
+    width: 75%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.imgZoom .modalDesc {
+    width: 25%;
+    height: 100%;
+    background-color: blue;
 }
