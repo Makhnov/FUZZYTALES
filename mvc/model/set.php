@@ -1,10 +1,10 @@
 <?php
 // // Ajouts
 //Inscription d'un utilisateur
-function ajoutUtilisateur($bdd, $pseudo_utilisateur, $mail_utilisateur, $mdp_utilisateur)
+function ajoutUtilisateur($bdd, $pseudo_utilisateur, $mail_utilisateur, $mdp)
 {
     try {
-        $mdp = password_hash($_POST['mpd_utilisateur'], PASSWORD_DEFAULT);
+        $mdp = password_hash($_POST['mdp_utilisateur'], PASSWORD_DEFAULT);
         $requete = $bdd->prepare("INSERT INTO utilisateurs(pseudo_utilisateur,mail_utilisateur,mdp_utilisateur) VALUES (:pseudo_utilisateur, :mail_utilisateur, :mdp_utilisateur)");
         $requete->execute(array(
             'pseudo_utilisateur' => $pseudo_utilisateur,
