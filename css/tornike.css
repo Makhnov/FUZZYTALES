@@ -492,7 +492,7 @@ form input:focus-within {
     font-weight: 700;
 }
 .connectWrapper .previousPage button:hover {
-    color: yellow;
+    color: white;
 }
 .connectWrapper .previousPage button ion-icon{
     font-size: 3rem;
@@ -506,7 +506,7 @@ form input:focus-within {
     position: relative;
     width: 400px;
     height: 400px;
-    backdrop-filter: blur(100px);
+    /*backdrop-filter: blur(100px);
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.3);
     border-radius: 15px;
@@ -523,7 +523,7 @@ form input:focus-within {
 }
 .logIn form input::placeholder, .signUp form input::placeholder{ 
     color: rgb(255, 255, 255);
-    opacity: .5; /* Firefox */
+    opacity: .7; /* Firefox */
   }
 .logIn form button, .signUp form button {
     all: unset;
@@ -532,27 +532,53 @@ form input:focus-within {
     text-align: center;
     border-radius: 10px;
     padding: 5px;
+    cursor: pointer;
+}
+.logIn form button:focus, .logIn form button:hover,
+.signUp form button:focus, .signUp form button:hover {
+    box-shadow: 0px 0px 5px 3px rgba(255, 255, 255, 0.8);
 }
 .logIn form input, .signUp form input {
     all: unset;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-bottom: 2px solid #F55050;
     margin-bottom: 20px;
     padding: 2px 10px;
+    caret-color: white;
 }
 .logIn form input:not(:placeholder-shown), 
 .signUp form input:not(:placeholder-shown){
-    border-bottom: 2px solid yellow;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+/* if input is active, has text or doesn't have placeholder */
+.logIn:has(form input:active,form input:focus,input:not(:placeholder-shown)),
+.signUp:has(form input:active,form input:focus,input:not(:placeholder-shown)) {
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 1);
 }
 
+
+/* .logIn:has(form input:active,form input:focus,input:not(:placeholder-shown)) * button{
+    background-color: rgb(0, 204, 255);
+} */
+
+
 .logIn form input:focus, .signUp form input:focus {
-    border-bottom: 2px solid #F55050;
+    border-bottom: 2px solid #ffffff;
 }
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-background-clip: border-box !important;
+    color: white !important;
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+} */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-    -webkit-transition-delay: 9999s;
+    transition: background-color 5000s ease-in-out 0s !important;
+    -webkit-text-fill-color: #fff !important;
 }
-                        
