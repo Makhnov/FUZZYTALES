@@ -16,7 +16,7 @@ if(isset($_POST['pseudo_utilisateur']) && isset($_POST['mail_utilisateur']) && i
 
             //Extraction des données
             extract($_POST);
-            include('FUZZYTALES\mvc\model\set.php');
+            include('../model/set.php');
             ajoutUtilisateur($bdd,$pseudo_utilisateur,$mail_utilisateur,$mdp_utilisateur);
         }else{
             echo 'Les mots de passe ne sont pas identiques.';
