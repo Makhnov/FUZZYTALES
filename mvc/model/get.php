@@ -119,7 +119,7 @@ function getImgAlgo($bdd)
 function getNico($bdd, $table)
 {
     try {
-        $PDO = connect($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
+        $PDO = connectNico($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
         $data = $PDO->query("SELECT * FROM `$table`"); // On lance une requête pour sélectionner tous les éléments d'une table donnée.
         $data = $data->fetchAll(); // On récupère la totalité de ces éléments sous la forme d'un tableau associatif.
         return $data; // On renvoit ce tableau et on termine la connexion.
