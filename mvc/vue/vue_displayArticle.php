@@ -26,6 +26,11 @@
                             echo "</ul>";
                         echo "</div>";
                     echo "</div>";
+                    echo "<div class="."ionic".">";
+                        echo "<ion-icon name="."thumbs-up-outline"."></ion-icon>";
+                        echo "<ion-icon name="."bookmark-outline"."></ion-icon>";
+                        echo "<ion-icon name="."cloud-download-outline"."></ion-icon>";
+                    echo "</div>";
                 echo "</div>";
             $i+=2;
         }
