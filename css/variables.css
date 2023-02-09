@@ -1,9 +1,15 @@
 :root {
   --mainColor0:rgb(245, 80, 80);
+  --mainColor0F:rgba(245, 80, 80, 0.8);
   --mainColor1:rgb(245, 220, 220);
   --sideColor0:rgb(21, 1, 54);
   --sideColor1:rgb(41, 23, 81);
   --sideColor2:rgb(61, 42, 108);
+  --mainColor0L:rgba(245, 80, 80, .65);
+  --mainColor1L:rgba(245, 220, 220, .65);
+  --sideColor0L:rgba(21, 1, 54, .5);
+  --sideColor1L:rgba(41, 23, 81, .5);
+  --sideColor2L:rgba(61, 42, 108, .5);
   --bookSize:clamp(200px, 50vh, 600px);
   --bookBorder:rgb(50, 50, 50);
   --bookPage:whitesmoke;
