@@ -60,9 +60,9 @@ document.querySelectorAll('.tags').forEach(item => {
 
 /* add landscape/portrait classes to images */
 
-window.onload = function getOrientation(){
+window.onload = function imageSize(){
   let img = document.getElementsByTagName('img');
-
+  console.log(img);
   for (let i = 0; i < img.length; i++) {
     if (img[i].naturalWidth > img[i].naturalHeight){
       console.log("landscape");
@@ -76,4 +76,8 @@ window.onload = function getOrientation(){
     }
   }
 }
+
+
+
+
 
