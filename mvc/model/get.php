@@ -1,11 +1,10 @@
 <?php
 
-/*
-//Connexion à la BDD fuzzyTales
-$bdd = new PDO('mysql:host=localhost;dbname=fuzzyTales','root','',
-array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$bdd->exec("set names utf8");
-*/
+
+// //Connexion à la BDD fuzzyTales
+// $bdd = new PDO('mysql:host=localhost;dbname=fuzzyTales','root','',
+// array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+// $bdd->exec("set names utf8");
 
 // Afficher le nombre d'utilisateurs qui ont aimé une photo
 function nbLikes($bdd,$id_utilisateur,$id_image){
@@ -97,29 +96,13 @@ function search($bdd,$recherche){
 
 // IMAGES //
 
-function getImagesAlgo ($bdd){
+function getImgAlgo($bdd){
     try{
-        $requete = $bdd->query("SELECT url_image, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC"); // ORDER BY SUM(aimer.id_image)
-        $result = $requete->fetchAll();
+        $PDO = connectNico($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
+        $data = $PDO->query("SELECT images.id_image, url_image, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC");
+        $data = $data->fetchAll();
 
-        $j = 0;
-        $tabT = [];
-        $tabR = [];
-
-        foreach($result as $tab) {
-
-            $like = $tab[1];
-
-            if ($like > 1) {
-                array_push($tabT, $tab[0]);
-                array_push($tabT, $tab[1]);
-                array_push($tabR, $tabT);
-            }
-
-            $j++;
-        }
-
-        return $tabR;
+        return $data;
     }
 
     catch(Exception $e){
@@ -130,4 +113,25 @@ function getImagesAlgo ($bdd){
 // *** //
 
 ?>
+
+<?php // CODE NICO //
+
+    // RECUPERATION DES DONNES D'UNE TABLE SPECIFIQUE //
+    function getNico($bdd, $table){
+        try {
+            $PDO = connect($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
+            $data = $PDO->query("SELECT * FROM `$table`"); // On lance une requête pour sélectionner tous les éléments d'une table donnée.
+            $data = $data->fetchAll(); // On récupère la totalité de ces éléments sous la forme d'un tableau associatif.
+            return $data; // On renvoit ce tableau et on termine la connexion.
+        }
+
+        // ON RECUPERE LES EXCEPTIONS LEVEES DANS LE TRY // 
+        // Dans notre instance les erreurs sont considérées comme des exceptions (cf. mvc/model/connect.php lignes 12-13 ).
+        catch(Exception $exc) { 
+            return $exc->getMessage(); // On renvoit le message d'erreur.
+            die(); // On arrête l'exécution php directement après avoir envoyé le message d'erreur (mode 'développement').
+        }
+    }
+?>
+
 
