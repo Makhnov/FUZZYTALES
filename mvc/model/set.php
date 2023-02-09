@@ -4,11 +4,12 @@
 function ajoutUtilisateur($bdd, $pseudo_utilisateur, $mail_utilisateur, $mdp_utilisateur)
 {
     try {
+        $mdp = password_hash($_POST['mpd_utilisateur'], PASSWORD_DEFAULT);
         $requete = $bdd->prepare("INSERT INTO utilisateurs(pseudo_utilisateur,mail_utilisateur,mdp_utilisateur) VALUES (:pseudo_utilisateur, :mail_utilisateur, :mdp_utilisateur)");
         $requete->execute(array(
             'pseudo_utilisateur' => $pseudo_utilisateur,
             'mail_utilisateur' => $mail_utilisateur,
-            'mdp_utilisateur' => $mdp_utilisateur
+            'mdp_utilisateur' => $mdp
         ));
         $requete->closeCursor();
     } catch (Exception $e) {
@@ -77,6 +78,7 @@ function ajoutLike($bdd,$id_image,$id_utilisateur){
             'id_image' => $id_image,
             'id_utilisateur' => $id_utilisateur
         ));
+        $requete->closeCursor();
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -90,6 +92,7 @@ function ajoutFollow($bdd,$utilisateur_suivi,$utilisateur_suiveur){
             'utilisateur_suivi' => $utilisateur_suivi,
             'utilisateur_suiveur' => $utilisateur_suiveur
         ));
+        $requete->closeCursor();
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -220,6 +223,7 @@ function rangerImage($bdd, $id_image, $id_album)
             'id_image' => $id_image,
             'id_album' => $id_album
         ));
+        $requete->closeCursor();
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
