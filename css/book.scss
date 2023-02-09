@@ -1,10 +1,4 @@
-:root {
-    --bookImgLeft:url('../divers/img/imgLWait1.jpg');
-    --bookImgFront:url('../divers/img/1.jpg');
-    --bookImgBack: url('../divers/img/2.jpg');
-    --bookImgRight:url('../divers/img/imgRwait1.jpg');
-    --vitessePage:4.7s;
-}
+@import 'variables';
 
 @media screen and (max-width: 1000px) and (min-width:600px) {
     :root {
@@ -17,6 +11,8 @@
     display: grid;
     grid-template-rows:125px calc(100vh - 325px);
     place-content: center;
+
+    background-image: url('../divers/img/test6.jpg');
 }
 
 #readBook {
@@ -112,7 +108,13 @@ header h1 {
         left:0;
         background:var(--bookImgLeft);
         background-size:cover;
-        background-repeat: no-repeat;    }
+        background-repeat: no-repeat;
+        
+        box-shadow:
+        0 0 30px 20px #fff,
+        0 0 60px 40px var(--mainColor1),
+        0 0 90px 60px var(--mainColor2);
+    }
 }
 
 #pageDroite {
@@ -121,6 +123,11 @@ header h1 {
         width:calc(70 / 99 * var(--bookSize) - 3px)!important;
         background-image: var(--bookImgRight);
         background-size: cover;
+
+        box-shadow:
+        0 0 30px 20px #fff,
+        0 0 60px 40px var(--mainColor1),
+        0 0 90px 60px var(--mainColor2);
     }
 }
 

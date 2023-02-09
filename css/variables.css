@@ -1,0 +1,15 @@
+:root {
+  --mainColor0:rgb(245, 80, 80);
+  --mainColor1:rgb(245, 220, 220);
+  --sideColor0:rgb(21, 1, 54);
+  --sideColor1:rgb(41, 23, 81);
+  --sideColor2:rgb(61, 42, 108);
+  --bookSize:clamp(200px, 50vh, 600px);
+  --bookBorder:rgb(50, 50, 50);
+  --bookPage:whitesmoke;
+  --bookImgLeft:url("../divers/img/imgLWait1.jpg");
+  --bookImgFront:url("../divers/img/1.jpg");
+  --bookImgBack: url("../divers/img/2.jpg");
+  --bookImgRight:url("../divers/img/imgRwait1.jpg");
+  --vitessePage:4.7s;
+}/*# sourceMappingURL=variables.css.map */

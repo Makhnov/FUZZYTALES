@@ -1,4 +1,10 @@
 :root {
+  --mainColor1:rgb(245, 220, 220);
+  --mainColor0:rgb(245, 80, 80);
+  --mainColor2:rgb(41, 23, 81);
+  --bookSize:clamp(200px, 50vh, 600px);
+  --bookBorder:rgb(50, 50, 50);
+  --bookPage:whitesmoke;
   --bookImgLeft:url("../divers/img/imgLWait1.jpg");
   --bookImgFront:url("../divers/img/1.jpg");
   --bookImgBack: url("../divers/img/2.jpg");
@@ -16,6 +22,7 @@
   display: grid;
   grid-template-rows: 125px calc(100vh - 325px);
   place-content: center;
+  background-image: url("../divers/img/test6.jpg");
 }
 
 #readBook {
@@ -174,6 +181,7 @@ header h1 {
   background: var(--bookImgLeft);
   background-size: cover;
   background-repeat: no-repeat;
+  box-shadow: 0 0 30px 20px #fff, 0 0 60px 40px var(--mainColor1), 0 0 90px 60px var(--mainColor2);
 }
 
 #pageDroite::before {
@@ -181,6 +189,7 @@ header h1 {
   width: calc(0.7070707071 * var(--bookSize) - 3px) !important;
   background-image: var(--bookImgRight);
   background-size: cover;
+  box-shadow: 0 0 30px 20px #fff, 0 0 60px 40px var(--mainColor1), 0 0 90px 60px var(--mainColor2);
 }
 
 .fpage {
