@@ -1,15 +1,48 @@
 const racine = document.documentElement;
 const read = document.getElementById('readBook');
+const book = document.getElementById('book');
+const menuBook = document.getElementById('menuBook');
+const header = document.querySelector('header');
+const headerColorBefore = getComputedStyle(racine).getPropertyValue('--mainColor0L');
+const headerColorAfter = getComputedStyle(racine).getPropertyValue('--mainColor0');
+
 const imagesLivre = [];
 let tabImage = [];
+
 let bookImg1 = getComputedStyle(racine).getPropertyValue('--bookImgFront');
 let bookImg2 = getComputedStyle(racine).getPropertyValue('--bookImgBack');
 let vitessePage = getComputedStyle(racine).getPropertyValue('--vitessePage');
 let vPage = parseFloat(vitessePage.replace('s', '')) * 999;
 
 let interval;
-
 let iterationPage = 1;
+let previousScroll = 0;
+
+
+window.addEventListener('scroll', function() {
+  let scrolling = window.pageYOffset;
+  console.log(scrolling);
+
+  if (scrolling === 0) {
+        header.classList.remove('scrolled');
+        header.style.background = "linear-gradient(to bottom, var(--mainColor0), var(--mainColor0L))";
+        book.style.background = "linear-gradient(to bottom, #ffffff00, #ffffff00 125px, var(--mainColor0L) 125px, var(--sideColor1L) 100%)";
+        menuBook.style.display = "block";
+    } else if (scrolling > previousScroll) {
+        header.style.height = '75px';
+        header.classList.add('scrolled');
+        header.style.background = headerColorAfter;
+        book.style.background = "linear-gradient(to bottom, #ffffff00, #ffffff00 75px, var(--mainColor0L) 75px, var(--sideColor1L) 100%)";
+        menuBook.style.display = "none";
+    } else {
+        header.style.height = '125px';
+        header.classList.add('scrolled');
+        header.style.background = headerColorAfter;
+        book.style.background = "linear-gradient(to bottom, #ffffff00, #ffffff00 125px, var(--mainColor0L) 125px, var(--sideColor1L) 100%)";
+        menuBook.style.display = "none";
+}
+  previousScroll = scrolling;
+});
 
 function PHPtoJS(tab, str) {
     let tabInfos = [];

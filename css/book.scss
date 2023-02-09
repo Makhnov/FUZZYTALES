@@ -11,8 +11,18 @@
     display: grid;
     grid-template-rows:125px calc(100vh - 325px);
     place-content: center;
+}
 
-    background-image: url('../divers/img/test6.jpg');
+#book h1 {
+    position:absolute;
+    top: 125px;
+    left:0;
+    width:100vw;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    margin:0;
+    padding:0;
 }
 
 #readBook {
@@ -26,31 +36,17 @@
         animation: sliceR var(--vitessePage) linear infinite forwards;
     }
 
-    // &:checked ~ #livre #pageGauche::after {
-    //     animation: waitingLeft 2s linear infinite forwards;
-    // }
-
-    // &:checked ~ #livre #pageDroite::before {
-    //     animation: waitingRight 2s linear infinite forwards;
-    // }
+    &:checked ~ h1 {
+        animation: bougeDeLa var(--vitessePage) linear forwards;
+    }
 }
+
 
 //H1 dans accueil.scss
 
-header h1 {
-    position:absolute;
-    top: 125px;
-    left:0;
-    width:100vw;
-    display: grid;
-    place-content: center;
-    font-size: 4rem;
-    margin:0;
-    padding:0;
-}
-
 #livre {
     position: absolute;
+    z-index: 10;
     transform-style: preserve-3d;
     top:100px;
     justify-self: center;
@@ -58,7 +54,7 @@ header h1 {
     height:var(--bookSize);
     width:calc(140 / 99 * var(--bookSize) + 5px);
     transform-origin: right;
-    transform: rotateX(40deg) rotate(-10deg);
+    transform: rotateX(40deg) rotate(-10deg) translateY(150px);
     overflow: visible;
     cursor: pointer;
 
@@ -68,6 +64,11 @@ header h1 {
     &:hover .sliceR .sliceR {
         animation-play-state: paused!important;
     }
+            
+    box-shadow:
+    0 0 25px 10px #fff,
+    0 0 30px 15px var(--mainColor1),
+    0 0 35px 20px var(--mainColor1L);
 }
 
 @for $i from 0 to 4 {
@@ -109,11 +110,6 @@ header h1 {
         background:var(--bookImgLeft);
         background-size:cover;
         background-repeat: no-repeat;
-        
-        box-shadow:
-        0 0 30px 20px #fff,
-        0 0 60px 40px var(--mainColor1),
-        0 0 90px 60px var(--mainColor2);
     }
 }
 
@@ -123,11 +119,6 @@ header h1 {
         width:calc(70 / 99 * var(--bookSize) - 3px)!important;
         background-image: var(--bookImgRight);
         background-size: cover;
-
-        box-shadow:
-        0 0 30px 20px #fff,
-        0 0 60px 40px var(--mainColor1),
-        0 0 90px 60px var(--mainColor2);
     }
 }
 
@@ -440,6 +431,23 @@ header h1 {
     }
 }
 
+@keyframes bougeDeLa {
+    0% {
+        transform: translateX(0vw);
+    }
+
+    25% {
+        transform: translateX(0vw);
+    }
+
+    90% {
+        transform: translateX(-16vw);
+    }
+
+    100% {
+        transform: translateX(-50vw) translateZ(-1000px) scale(0);
+    }
+}
 
 /*
 @keyframes waitingRight {

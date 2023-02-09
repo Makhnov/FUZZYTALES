@@ -22,7 +22,6 @@
         <p>       
             <!-- ZONE AFFICHAGE PHP -->
         </p>
-        <h1>FUZZY TALES</h1>
         <label for="readBook" id="menuBook"></label>
         <nav>
             <ul>
@@ -36,6 +35,7 @@
 
     <section id="book">
         <input type="checkbox" id="readBook">
+        <h1>FUZZY TALES</h1>
         <div id="livre">
             <div class="page gauche">
                 <div class="slice sliceL">
