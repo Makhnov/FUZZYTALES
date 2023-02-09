@@ -17,19 +17,19 @@
         </div>
         <div class="logIn">
             <h1>Log in</h1>
-            <form action="action_page.php" method="post">
-                  <input type="email" placeholder="Enter Email" name="email" required>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
+            <form action="controller_login.php" method="post">
+                  <input type="email" placeholder="Enter Email" name="mail_utilisateur" required>
+                  <input type="password" placeholder="Enter Password" name="mdp_utilisateur" required>
                   <button type="submit" id="logIn">Login</button>
               </form>
         </div>
         <div class="signUp">
             <h1>Sign up</h1>
-            <form action="action_page.php" method="post">
-                <input type="text" placeholder="Enter Username" name="username" required>
-                <input type="email" placeholder="Enter Email" name="email" required>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                <input type="password" placeholder="Confirm Password" name="confirmPsw" required>
+            <form action="controller_signUp.php" method="post">
+                <input type="text" placeholder="Enter Username" name="pseudo_utilisateur" required>
+                <input type="email" placeholder="Enter Email" name="mail_utilisateur" required>
+                <input type="password" placeholder="Enter Password" name="mdp_utilisateur" required>
+                <input type="password" placeholder="Confirm Password" name="mdp_utilisateurVerif" required>
                 <button type="submit" id="signUp">Sign up</button>
             </form>
         </div>
