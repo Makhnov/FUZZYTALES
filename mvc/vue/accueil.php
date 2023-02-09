@@ -17,8 +17,11 @@
 
 </head>
 
-<body onload="fuzzyTales()">
+<body onload="fuzziessssssss()">
     <header>
+        <p>       
+            <!-- ZONE AFFICHAGE PHP -->
+        </p>
         <h1>FUZZY TALES</h1>
         <label for="readBook" id="menuBook"></label>
         <nav>
@@ -67,11 +70,11 @@
             <div class="fpage gauche"></div>
             <div class="fpage gauche"></div>
             <div class="fpage gauche"></div>
-            <div class="fpage gauche"></div>
+            <div id="pageGauche" class="fpage gauche"></div>
             <div class="fpage droite"></div>
             <div class="fpage droite"></div>
             <div class="fpage droite"></div>
-            <div class="fpage droite"></div>
+            <div id="pageDroite" class="fpage droite"></div>
     </section>
 
     <?php
@@ -79,10 +82,11 @@
     include('../vue/notNewbie.php'); // INFORMATIONS INSCRITS 
     ?>
 
-
-
     <footer></footer>
     <script src="../../js/book.js"></script>
+    <?php
+                promptImgAlgo()
+    ?>
 </body>
 
 </html>

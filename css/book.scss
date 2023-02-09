@@ -1,11 +1,8 @@
-:root {
-    --bookImgFront:url('../divers/img/1.jpg');
-    --bookImgBack: url('../divers/img/2.jpg');
-}
+@import 'variables';
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) and (min-width:600px) {
     :root {
-        --bookSize:200px!important;
+        --bookSize:300px!important;
     }
 }
 
@@ -14,26 +11,28 @@
     display: grid;
     grid-template-rows:125px calc(100vh - 325px);
     place-content: center;
+
+    background-image: url('../divers/img/test6.jpg');
 }
 
 #readBook {
     display: none;
 
     &:checked ~ #livre .page.droite {
-        animation: pageDroite 2s linear infinite forwards;
-    }
-
-    &:checked ~ #livre .fpage:nth-of-type(6)::after {
-        animation: waitingLeft 2s linear infinite forwards;
-    }
-
-    &:checked ~ #livre .fpage:nth-of-type(10)::before {
-        animation: waitingRight 2s linear infinite forwards;
+        animation: pageDroite var(--vitessePage) linear infinite forwards;
     }
 
     &:checked ~ #livre .sliceR .sliceR {
-        animation: sliceR 2s linear infinite forwards;
+        animation: sliceR var(--vitessePage) linear infinite forwards;
     }
+
+    // &:checked ~ #livre #pageGauche::after {
+    //     animation: waitingLeft 2s linear infinite forwards;
+    // }
+
+    // &:checked ~ #livre #pageDroite::before {
+    //     animation: waitingRight 2s linear infinite forwards;
+    // }
 }
 
 //H1 dans accueil.scss
@@ -64,8 +63,8 @@ header h1 {
     cursor: pointer;
 
     &:hover .page.droite,
-    &:hover .fpage:nth-of-type(6)::after,
-    &:hover .fpage:nth-of-type(10)::before,
+    &:hover #pageGauche::after,
+    &:hover #pageDroite::before,
     &:hover .sliceR .sliceR {
         animation-play-state: paused!important;
     }
@@ -103,118 +102,32 @@ header h1 {
     }
 }
 
-.fpage:nth-of-type(6) {
+#pageGauche {
     &::after {
         top:0;
         left:0;
-        background:url('../divers/img/imgLWait1.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;    }
-}
-
-@keyframes waitingLeft {
-    0% {
-        background:var(--bookImgBack);
+        background:var(--bookImgLeft);
         background-size:cover;
         background-repeat: no-repeat;
-    }
-    20% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity: 1;
-    }
-    29% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity: .9;
-    }
-    31% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity: .9;
-    }
-    40% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity: 1;
-    }
-    97% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    98% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    100% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
+        
+        box-shadow:
+        0 0 30px 20px #fff,
+        0 0 60px 40px var(--mainColor1),
+        0 0 90px 60px var(--mainColor2);
     }
 }
 
-.fpage:nth-of-type(10) {
+#pageDroite {
     &::before {
         top:0;
         width:calc(70 / 99 * var(--bookSize) - 3px)!important;
-    }
-}
+        background-image: var(--bookImgRight);
+        background-size: cover;
 
-@keyframes waitingRight {
-    0% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-
-    2% {
-        background:url('../divers/img/imgRWait1.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-
-    70% {
-        background:url('../divers/img/imgRWait1.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity:1;
-    }
-    79% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity:.9;
-    }
-    81% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity:.9;
-    }
-    90% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity:1;
-    }
-    100% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
+        box-shadow:
+        0 0 30px 20px #fff,
+        0 0 60px 40px var(--mainColor1),
+        0 0 90px 60px var(--mainColor2);
     }
 }
 
@@ -357,34 +270,10 @@ header h1 {
     cursor: pointer;
 
     &:hover,
-    &:hover ~ .fpage:nth-of-type(6)::after,
-    &:hover ~ .fpage:nth-of-type(10)::before,
+    &:hover ~ #pageGauche::after,
+    &:hover ~ #pageDroite::before,
     &:hover .sliceR .sliceR  {
         animation-play-state: paused!important;
-    }
-}
-
-@keyframes pageDroite {
-    0% {
-        transform: translateX(5px) translateZ(6px) rotateY(179deg);
-        visibility: hidden;
-    }
-    1% {
-        transform: translateX(5px) translateZ(6px) rotateY(179deg);
-        visibility: visible;
-    }
-
-    98% {
-        transform: translateX(0px) translateZ(5.5px) rotateY(1deg);
-        visibility: visible;
-    }
-    99% {
-        transform: translateX(0px) translateZ(6px) rotateY(1deg);
-        visibility: hidden;
-    }
-    100% {
-        transform: translateX(5px) translateZ(6px) rotateY(179deg);
-        visibility: hidden;
     }
 }
 
@@ -511,6 +400,16 @@ header h1 {
     }
 }
 
+@keyframes pageDroite {
+    0% {
+        transform: translateX(5px) translateZ(6px) rotateY(177deg);
+    }
+
+    100% {
+        transform: translateX(0px) translateZ(6px) rotateY(4deg);
+    }
+}
+
 @keyframes sliceR {
     0% {
         transform: rotateY(-1deg);
@@ -540,3 +439,105 @@ header h1 {
         transform: rotateY(-1deg);
     }
 }
+
+
+/*
+@keyframes waitingRight {
+    0% {
+        background:var(--bookImgFront);
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+
+    2% {
+        background:url('../divers/img/imgRWait1.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+
+    70% {
+        background:url('../divers/img/imgRWait1.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(0px);
+        opacity:1;
+    }
+    79% {
+        background:var(--bookImgFront);
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(4px);
+        opacity:.9;
+    }
+    81% {
+        background:var(--bookImgFront);
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(4px);
+        opacity:.9;
+    }
+    90% {
+        background:var(--bookImgFront);
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(0px);
+        opacity:1;
+    }
+    100% {
+        background:var(--bookImgFront);
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+}
+
+@keyframes waitingLeft {
+    0% {
+        background:var(--bookImgBack);
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+    20% {
+        background:var(--bookImgBack);
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(0px);
+        opacity: 1;
+    }
+    29% {
+        background:var(--bookImgBack);
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(4px);
+        opacity: .9;
+    }
+    31% {
+        background:url('../divers/img/imgLWait2.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(4px);
+        opacity: .9;
+    }
+    40% {
+        background:url('../divers/img/imgLWait2.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        filter:blur(0px);
+        opacity: 1;
+    }
+    97% {
+        background:url('../divers/img/imgLWait2.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+    98% {
+        background:var(--bookImgBack);
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+    100% {
+        background:var(--bookImgBack);
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+}
+*/
