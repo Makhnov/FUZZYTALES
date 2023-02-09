@@ -473,7 +473,7 @@ form input:focus-within {
     gap: 20px;
     width: 100vw;
     height: 100vh;
-    background-image: url("/divers/img/test5.jpg");
+    background-image: url("../divers/img/test5.jpg");
     background-size: cover;
 }
 .connectWrapper .previousPage{
@@ -506,7 +506,7 @@ form input:focus-within {
     position: relative;
     width: 400px;
     height: 400px;
-    backdrop-filter: blur(100px);
+    /*backdrop-filter: blur(100px);
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.3);
     border-radius: 15px;
