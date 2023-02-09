@@ -2,6 +2,8 @@
 // Connexion à la BDD
 include('FUZZYTALES\mvc\model\connect.php');
 
+include('FUZZYTALES\connect.php');
+
 //Test existence des champs
 if(isset($_POST['pseudo_utilisateur']) && isset($_POST['mail_utilisateur']) && isset($_POST['mdp_utilisateur']) && isset($_POST['mdp_utilisateurVerif'])){
 
