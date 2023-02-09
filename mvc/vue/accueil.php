@@ -11,15 +11,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./css/book.css">
-    <link rel="stylesheet" href="./css/accueil.css">
-    <link rel="icon" type="image/x-icon" href="./img/favbook.ico">
+    <link rel="stylesheet" href="../../css/book.css">
+    <link rel="stylesheet" href="../../css/accueil.css">
+    <link rel="icon" type="image/x-icon" href="../../divers/img/favbook.ico">
 
 </head>
 
-<body onload="fuzzyTales()">
+<body onload="fuzziessssssss()">
     <header>
-        <!-- <h1>FUZZY TALES</h1> -->
+        <p>       
+            <!-- ZONE AFFICHAGE PHP -->
+        </p>
+        <h1>FUZZY TALES</h1>
         <label for="readBook" id="menuBook"></label>
         <nav>
             <ul>
@@ -67,21 +70,23 @@
             <div class="fpage gauche"></div>
             <div class="fpage gauche"></div>
             <div class="fpage gauche"></div>
-            <div class="fpage gauche"></div>
+            <div id="pageGauche" class="fpage gauche"></div>
             <div class="fpage droite"></div>
             <div class="fpage droite"></div>
             <div class="fpage droite"></div>
-            <div class="fpage droite"></div>
+            <div id="pageDroite" class="fpage droite"></div>
     </section>
 
-    <section id="newb">
-    </section>
-
-    <section id="notNewb">
-    </section>
+    <?php
+    include('../vue/newbie.php'); // INFORMATIONS NON INSCRITS
+    include('../vue/notNewbie.php'); // INFORMATIONS INSCRITS 
+    ?>
 
     <footer></footer>
-    <script src="./js/book.js"></script>
+    <script src="../../js/book.js"></script>
+    <?php
+                promptImgAlgo()
+    ?>
 </body>
 
 </html>

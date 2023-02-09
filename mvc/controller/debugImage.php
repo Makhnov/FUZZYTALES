@@ -1,4 +1,5 @@
 <?php
+/*
 //Connexion à la BDD fuzzyTales
 $bdd = new PDO('mysql:host=localhost;dbname=fuzzyTales','root','',
 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -60,5 +61,5 @@ $tableau = search($bdd, 'url_image');
 for ($i = 1; $i < (count($tableau) + 1); $i++ ) {
     editImage($bdd, $i, $tableau[$i - 1]);
 }
-
+*/
 ?>

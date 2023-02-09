@@ -50,11 +50,34 @@
 
 
 
-/* scroll horizontally */
+/* scroll card tags horizontally */
 document.querySelectorAll('.tags').forEach(item => {
   item.addEventListener('wheel', event => {
     event.preventDefault();
     item.scrollLeft += event.deltaY;
   })
 });
+
+/* add landscape/portrait classes to images */
+
+window.onload = function imageSize(){
+  let img = document.getElementsByTagName('img');
+  console.log(img);
+  for (let i = 0; i < img.length; i++) {
+    if (img[i].naturalWidth > img[i].naturalHeight){
+      console.log("landscape");
+      img[i].classList = "landscape";
+      console.log(img[i]);
+    } else if (img[i].naturalWidth < img[i].naturalHeight){
+        console.log("portrait");
+        img[i].classList = "portrait";
+    } else {
+        return
+    }
+  }
+}
+
+
+
+
 
