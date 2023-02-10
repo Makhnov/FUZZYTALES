@@ -4,7 +4,7 @@
 function ajoutUtilisateur($bdd, $pseudo_utilisateur, $mail_utilisateur, $mdp)
 {
     try {
-        $mdp = password_hash($_POST['mdp_utilisateur'], PASSWORD_DEFAULT);
+        $mdp = PASSWORD_hash($_POST['mdp_utilisateur'], PASSWORD_DEFAULT);
         $requete = $bdd->prepare("INSERT INTO utilisateurs(pseudo_utilisateur,mail_utilisateur,mdp_utilisateur) VALUES (:pseudo_utilisateur, :mail_utilisateur, :mdp_utilisateur)");
         $requete->execute(array(
             'pseudo_utilisateur' => $pseudo_utilisateur,
@@ -16,6 +16,52 @@ function ajoutUtilisateur($bdd, $pseudo_utilisateur, $mail_utilisateur, $mdp)
         die('Erreur : ' . $e->getMessage());
     }
 }
+function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
+    
+      try {
+   
+        // Prepare the SQL statement
+        $requete = $bdd->prepare("SELECT * FROM utilisateurs WHERE mail_utilisateur = :mail_utilisateur");
+        $requete->execute(array(
+            'mail_utilisateur'=>$mail_utilisateur
+        ));
+    
+        // Fetch the result
+        $result = $requete->fetch();
+        print_r($result);
+        if ($result) {
+            if(password_verify($mdp_utilisateur,$result['mdp_utilisateur'])){
+                session_start();
+                $_SESSION['logged_in'] = true;
+                $_SESSION['mail_utilisateur'] = $mail_utilisateur;
+                header("Location: ../controller/bibliotheque.php");
+          
+            }else {
+                // Login failed
+                echo "Votre email ou mot de passe est incorrect";
+        } 
+        }
+      } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+      }
+    
+}
+
+function deconnexion(){
+    
+  // Initialiser la session
+  session_start();
+  
+  // Détruire la session.
+  if(session_destroy())
+  {
+    // Redirection vers la page de connexion
+    header("Location: accueil.php");
+  }
+
+}
+
+
 
 //Ajout d'une nouvelle catégorie
 function ajoutCategorie($bdd, $nom_categorie)

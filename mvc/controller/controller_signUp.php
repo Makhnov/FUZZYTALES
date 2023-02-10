@@ -18,13 +18,15 @@ if(isset($_POST['pseudo_utilisateur']) && isset($_POST['mail_utilisateur']) && i
             extract($_POST);
             include('../model/set.php');
             ajoutUtilisateur($bdd,$pseudo_utilisateur,$mail_utilisateur,$mdp_utilisateur);
+            //recharge la page et empeche la création de duplicata de données
+            header('Location: controller_signUp.php');
         }else{
             echo 'Les mots de passe ne sont pas identiques.';
         }
 
-    }
+    }else{
+        echo 'Les données ne sont pas conformes.';
 
-}else{
-    echo 'Les données ne sont pas conformes.';
+}
 }
 ?>
