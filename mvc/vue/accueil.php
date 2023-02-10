@@ -15,24 +15,15 @@
     <link rel="stylesheet" href="../../css/accueil.css">
     <link rel="icon" type="image/x-icon" href="../../divers/img/favbook.ico">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+        integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    
 </head>
 
 <body onload="fuzziessssssss()">
-    <header>
-        <p>       
-            <!-- ZONE AFFICHAGE PHP -->
-        </p>
-        <label for="readBook" id="menuBook"></label>
-        <nav>
-            <ul>
-                <input type="checkbox" id="ul">
-                <li class="upload"></li>
-                <li class="profil"></li>
-                <li class="album"></li>
-            </ul>
-        </nav>
-    </header>
-
+    <?php
+        include('../vue/header.php'); // PIED DE PAGE
+    ?>
     <section id="book">
         <input type="checkbox" id="readBook">
         <h1>FUZZY TALES</h1>
@@ -80,12 +71,11 @@
     <?php
     include('../vue/newbie.php'); // INFORMATIONS NON INSCRITS
     include('../vue/notNewbie.php'); // INFORMATIONS INSCRITS 
+    include('../vue/footer.php'); // PIED DE PAGE
     ?>
-
-    <footer></footer>
     <script src="../../js/book.js"></script>
     <?php
-                promptImgAlgo()
+        promptImgAlgo()
     ?>
 </body>
 

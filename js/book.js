@@ -5,12 +5,13 @@ const menuBook = document.getElementById('menuBook');
 const header = document.querySelector('header');
 const headerColorBefore = getComputedStyle(racine).getPropertyValue('--mainColor0L');
 const headerColorAfter = getComputedStyle(racine).getPropertyValue('--mainColor0');
+const slices = document.getElementsByClassName('sliceR');
+const pageDroite = document.getElementById('pageDroite');
+const pageGauche = document.getElementById('pageGauche');
 
 const imagesLivre = [];
 let tabImage = [];
 
-let bookImg1 = getComputedStyle(racine).getPropertyValue('--bookImgFront');
-let bookImg2 = getComputedStyle(racine).getPropertyValue('--bookImgBack');
 let vitessePage = getComputedStyle(racine).getPropertyValue('--vitessePage');
 let vPage = parseFloat(vitessePage.replace('s', '')) * 999;
 
@@ -18,6 +19,10 @@ let interval;
 let iterationPage = 1;
 let previousScroll = 0;
 
+function fuzziessssssss() {
+    read.checked = false;
+    iterationPage = 1;
+}
 
 window.addEventListener('scroll', function() {
   let scrolling = window.pageYOffset;
@@ -60,7 +65,7 @@ function PHPtoJS(tab, str) {
     }
 
     return eval(str + "(" + JSON.stringify(tabInfos) + ", "+ JSON.stringify(tabImage) +")");
-};
+}
 
 function affichageImageLivre(tab2, tab) {
     console.log(tab2);
@@ -94,8 +99,8 @@ read.addEventListener("change", function() {
         interval = setInterval(function() {
             for (let i = 0; i < 4; i++) {
                 setImage(i, tabImage[((2 * iterationPage) + i) % 16]);
-                console.log("iter"+i+" :");
-                console.log("Modulo :"+((2 * iterationPage) + i) % 16);
+                //console.log("iter"+i+" :");
+                //console.log("Modulo :"+((2 * iterationPage) + i) % 16);
             }
             iterationPage++;
         }, vPage);
@@ -105,7 +110,40 @@ read.addEventListener("change", function() {
     }
 });
 
-function fuzziessssssss() {
-    read.checked = false;
-    iterationPage = 1;
+pageGauche.addEventListener('click', function() {
+    imageAccueilClicked(1);
+});
+
+Array.from(slices).forEach(function(slice) {
+  slice.addEventListener('click', function() {
+    imageAccueilClicked(2);
+  });
+});
+
+pageDroite.addEventListener('click', function() {
+    imageAccueilClicked(3);
+});
+
+
+
+
+function imageAccueilClicked(url) {
+    console.log(url);
+    if (typeof url === 'number') {
+        switch (url) {
+            case 1:
+                url = getComputedStyle(racine).getPropertyValue('--bookImgLeft');
+                console.log('cas1');
+                break;
+            case 2:
+                url = getComputedStyle(racine).getPropertyValue('--bookImgFront') + "&img2=" + getComputedStyle(racine).getPropertyValue('--bookImgBack');
+                console.log('cas2');
+                break;
+            case 3: 
+                url = getComputedStyle(racine).getPropertyValue('--bookImgRight');
+                console.log('cas3');
+                break;
+        }
+    }
+    window.location.href = `bibliotheque.php?img1=${url}`;
 }

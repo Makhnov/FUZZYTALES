@@ -58,7 +58,7 @@ header {
     }  
 }
 
-nav {
+header nav {
     grid-row:2;
     grid-column: 3;
     align-self: center;
@@ -117,7 +117,7 @@ nav {
     }
 }
 
-nav ul li {
+header nav ul li {
     position: absolute;
     transition: .75s;
     box-sizing: border-box;
@@ -130,7 +130,7 @@ nav ul li {
     }
 }
 
-nav ul li.upload {
+header nav ul li.upload {
     grid-column: 2;
     grid-row:1 / span 2;
     height: 100px;
@@ -143,7 +143,7 @@ nav ul li.upload {
     clip-path: circle(18px at left center);          
 }
 
-nav ul li.album {
+header nav ul li.album {
     grid-column: 1;
     grid-row:1;
     height: 50px;
@@ -156,7 +156,7 @@ nav ul li.album {
     clip-path: circle(18px at right bottom);                     
 }
 
-nav ul li.profil {
+header nav ul li.profil {
     grid-column: 1;
     grid-row:2;
     height: 50px;
@@ -219,44 +219,104 @@ nav ul li.profil {
     );
 }
 
-// header h1.loaded {
-//     animation: fuzzyTales1 8s linear forwards;
-// }
+// FLECHES ANIMEES //
 
-// @keyframes fuzzyTales1 {
-//     0% {
-//         transform: none;
-//         font-size: 5rem;
-//     }
+#moreToSee {
+    position: relative;
+    top:50px;
+    left:50%;
+    height: 60px;
+    width: 60px;
 
-//     15% {
-//         transform: none;
-//         font-size: 5rem;
-//     }
+    transform: translate(-50%, -50%) rotate(45deg);
 
-//     @for $i from 0 to 50 {
-//         #{($i + 25)+"%"} {
-//             transform: translateX(-1vw * ((($i * $i) / -10) + 200));
-//         }
-//     }
+    .arrow.top {
+        position: absolute;
+        height: 20px;
+        width:20px;
+        box-sizing: border-box;
+        border-bottom:5px solid var(--mainColor1);
+        border-right:5px solid var(--mainColor1);
+        border-radius: 0 0 3px 0;
+        animation: flecheMid var(--vitessePage) linear infinite;
+    }
 
-//     100% {
-//         transform: translateX(-50vw);
-//     }
-// }
+    .arrow.mid {
+        position: absolute;
+        top:8px;
+        left:8px;
+        height: 20px;
+        width: 20px;
+        box-sizing: border-box;
+        border-bottom:5px solid var(--mainColor1);
+        border-right:5px solid var(--mainColor1);
+        border-radius: 0 0 3px 0;
+        animation: flecheBottom var(--vitessePage) linear infinite;
+    }
 
-// @keyframes fuzzyTales2 {
-//     0% {
-//         clip-path: circle(0%);
-//     }
-//     66% {
-//         clip-path: circle(0%);
-//     }
-//     100% {
-//         clip-path: circle(100%);
-//     }
-// }
+    .arrow.bottom {
+        position: absolute;
+        mix-blend-mode: normal;
+        top:-8px;
+        left:-8px;
+        height: 20px;
+        width: 20px;
+        box-sizing: border-box;
+        border-bottom:5px solid var(--mainColor1);
+        border-right:5px solid var(--mainColor1);            
+        border-radius: 0 0 3px 0;
+        animation: flecheTop var(--vitessePage) linear infinite;
+    }
+}
 
+@keyframes flecheTop {
+    0% {
+        opacity: 0.1;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+@keyframes flecheMid {
+    0% {
+        opacity: 0.1;
+    }
+    34% {
+        opacity: 0.1;
+    }
+    59% {
+        opacity: 1;
+    }
+    84% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+@keyframes flecheBottom {
+    0% {
+        opacity: 0.676;
+    }
+    16% {
+        opacity: 0.1;
+    }
+    66% {
+        opacity: 0.1;
+    }
+    91% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.676;
+    }
+}
 
 #newb {
     height: calc(100vh - 100px);
@@ -278,4 +338,106 @@ footer {
     height: 100px;
     width: 100vw;
     background: var(--mainColor0F);
+    color: #fff;
+    display: grid;
+    grid-template-columns: 50vw calc(50vw - 250px) 250px;    
+
+    nav {
+        grid-row:1;
+        grid-column: 1;
+
+        display: flex;
+        justify-content: center;
+        width: 50vw;
+
+        ul {
+            justify-self: center;
+            width: calc(50vw / 3);
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+
+            li {
+                align-self: center;
+                margin:0;
+                padding:0;
+                width: calc(50vw / 6);
+                height: calc(100px / 3);
+                margin-right: 20px;
+
+                a {
+                    margin:0;
+                    padding:0;
+                    height: calc(100px / 3);
+                    display: grid;
+                    align-content: center;    
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    #social {
+        grid-row:1;
+        grid-column: 2;
+
+        height:100px;
+        width: calc(50vw - 250px);
+        display:grid;
+        grid-template-rows: 25px 75px;
+        grid-template-columns:calc(50vw - 250px);
+
+        p {
+            grid-row:1;
+            grid-column:1;
+            display: grid;
+            place-content:center;
+            margin:0;
+            padding:0;
+            height: 25px;
+            width : calc(50vw - 250px);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .socialLink {        
+            grid-row:2;
+            grid-column:1; 
+            justify-self: center;
+
+            height:75px;
+            min-width: 300px;
+            width: calc(30vw - 250px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            a {
+                margin:0;
+                padding:0;
+                color: #fff;
+
+                i {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+    p {
+        grid-row:1;
+        grid-column: 3;
+        
+        display: grid;
+        align-content:end;
+        justify-content: end;
+        margin:0;
+        padding-bottom: 20px;
+        padding-right: 20px;
+        height: 80px;
+        width : 230px;
+        font-size: 15px;
+    }
 }
+  
