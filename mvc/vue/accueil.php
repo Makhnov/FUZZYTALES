@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="../../css/book.css">
     <link rel="stylesheet" href="../../css/accueil.css">
     <link rel="icon" type="image/x-icon" href="../../divers/img/favbook.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+        integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    
 </head>
 
 <body onload="fuzziessssssss()">

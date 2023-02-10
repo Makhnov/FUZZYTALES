@@ -58,7 +58,7 @@ header {
     }  
 }
 
-nav {
+header nav {
     grid-row:2;
     grid-column: 3;
     align-self: center;
@@ -339,29 +339,105 @@ footer {
     width: 100vw;
     background: var(--mainColor0F);
     color: #fff;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50vw calc(50vw - 250px) 250px;    
 
     nav {
-        width: 100vw;
+        grid-row:1;
+        grid-column: 1;
+
+        display: flex;
+        justify-content: center;
+        width: 50vw;
 
         ul {
-        list-style: none;
-        display: flex;
-        
+            justify-self: center;
+            width: calc(50vw / 3);
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+
             li {
+                align-self: center;
+                margin:0;
+                padding:0;
+                width: calc(50vw / 6);
+                height: calc(100px / 3);
                 margin-right: 20px;
 
                 a {
+                    margin:0;
+                    padding:0;
+                    height: calc(100px / 3);
+                    display: grid;
+                    align-content: center;    
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    #social {
+        grid-row:1;
+        grid-column: 2;
+
+        height:100px;
+        width: calc(50vw - 250px);
+        display:grid;
+        grid-template-rows: 25px 75px;
+        grid-template-columns:calc(50vw - 250px);
+
+        p {
+            grid-row:1;
+            grid-column:1;
+            display: grid;
+            place-content:center;
+            margin:0;
+            padding:0;
+            height: 25px;
+            width : calc(50vw - 250px);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .socialLink {        
+            grid-row:2;
+            grid-column:1; 
+            justify-self: center;
+
+            height:75px;
+            min-width: 300px;
+            width: calc(30vw - 250px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            a {
+                margin:0;
+                padding:0;
                 color: #fff;
-                text-decoration: none;
+
+                i {
+                    font-size: 30px;
                 }
             }
         }
     }
 
     p {
-        font-size: 12px;
+        grid-row:1;
+        grid-column: 3;
+        
+        display: grid;
+        align-content:end;
+        justify-content: end;
+        margin:0;
+        padding-bottom: 20px;
+        padding-right: 20px;
+        height: 80px;
+        width : 230px;
+        font-size: 15px;
     }
 }
   
