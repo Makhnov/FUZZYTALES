@@ -1,8 +1,9 @@
 <?php
 // Connexion à la BDD
-include('FUZZYTALES\mvc\model\connect.php');
+include('../model/connect.php');
 
-include('FUZZYTALES\connect.php');
+// Affichage de la vue
+include('../../connect.php');
 
 //Test existence des champs
 if(isset($_POST['pseudo_utilisateur']) && isset($_POST['mail_utilisateur']) && isset($_POST['mdp_utilisateur']) && isset($_POST['mdp_utilisateurVerif'])){
@@ -15,7 +16,7 @@ if(isset($_POST['pseudo_utilisateur']) && isset($_POST['mail_utilisateur']) && i
 
             //Extraction des données
             extract($_POST);
-            include('FUZZYTALES\mvc\model\set.php');
+            include('../model/set.php');
             ajoutUtilisateur($bdd,$pseudo_utilisateur,$mail_utilisateur,$mdp_utilisateur);
         }else{
             echo 'Les mots de passe ne sont pas identiques.';
