@@ -71,14 +71,9 @@ window.onload = function imageSize(){
     } else if (img[i].naturalWidth < img[i].naturalHeight){
         console.log("portrait");
         img[i].classList = "portrait";
-    } else {
-        return
     }
   }
 }
-
-
-
 
 
 /*
