@@ -5,4 +5,5 @@
     include('../controller/accueil.php'); // FONCTIONS PAGE D'ACCUEIL
     include('../controller/functions.php'); // FONCTIONS GENERALES
     include('../vue/accueil.php'); // VISUEL PAGE D'ACCUEIL
+    include('../vue/zoom.php'); // POP UP ZOOM
 ?>

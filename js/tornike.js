@@ -86,14 +86,19 @@ window.onload = function imageSize(){
 
 let openModalButtons = document.querySelectorAll('[data-modal-target]')
 let closeModalButtons = document.querySelectorAll('[data-close-button]')
-let overlay = document.getElementById('overlay')
+const overlay = document.getElementById('overlay')
 
-overlay.addEventListener('click', () => {
-    let modals = document.querySelectorAll('.modal.active')
+function overlayListener() {
+  overlay.addEventListener('click', () => {
+    let modals = document.querySelectorAll('.modal.active');
+    
     modals.forEach(modal => {
       closeModal(modal);
-    })
-})
+    });
+  })
+}
+
+
 openModalButtons.forEach(button => {
     button.addEventListener('click',() => {
         let modal = document.querySelector(button.dataset.modalTarget)
@@ -112,6 +117,7 @@ function openModal(modal){
     if(modal == null) return
     modal.classList.add('active')
     overlay.classList.add('active')
+    overlayListener();
 }
 
 function closeModal(modal){

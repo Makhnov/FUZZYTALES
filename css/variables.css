@@ -13,9 +13,9 @@
   --bookSize:clamp(200px, 50vh, 600px);
   --bookBorder:rgb(50, 50, 50);
   --bookPage:whitesmoke;
-  --bookImgLeft:url("../divers/img/imgLWait1.jpg");
-  --bookImgFront:url("../divers/img/1.jpg");
-  --bookImgBack: url("../divers/img/2.jpg");
-  --bookImgRight:url("../divers/img/imgRwait1.jpg");
+  --bookImgLeft:"";
+  --bookImgFront:"";
+  --bookImgBack:"";
+  --bookImgRight:"";
   --vitessePage:4.7s;
 }/*# sourceMappingURL=variables.css.map */

@@ -13,10 +13,10 @@
   --bookSize:clamp(200px, 50vh, 600px);
   --bookBorder:rgb(50, 50, 50);
   --bookPage:whitesmoke;
-  --bookImgLeft:url("../divers/img/imgLWait1.jpg");
-  --bookImgFront:url("../divers/img/1.jpg");
-  --bookImgBack: url("../divers/img/2.jpg");
-  --bookImgRight:url("../divers/img/imgRwait1.jpg");
+  --bookImgLeft:"";
+  --bookImgFront:"";
+  --bookImgBack:"";
+  --bookImgRight:"";
   --vitessePage:4.7s;
 }
 
@@ -68,7 +68,6 @@
   transform-origin: right;
   transform: rotateX(40deg) rotate(-10deg) translateY(150px);
   overflow: visible;
-  cursor: pointer;
   box-shadow: 0 0 25px 10px #fff, 0 0 30px 15px var(--mainColor1), 0 0 35px 20px var(--mainColor1L);
 }
 #livre:hover .page.droite, #livre:hover #pageGauche::after, #livre:hover #pageDroite::before, #livre:hover .sliceR .sliceR {
@@ -324,10 +323,20 @@
 }
 
 .page.droite {
+  position: absolute;
   visibility: visible;
   transform-origin: right;
   transform: translateX(6px) translateZ(6px) rotateY(179deg);
+}
+.page.droite::after {
+  position: absolute;
   cursor: pointer;
+  content: "";
+  top: 0;
+  left: 0;
+  height: var(--bookSize);
+  width: calc(0.7070707071 * var(--bookSize));
+  background-color: rgba(0, 255, 255, 0.468);
 }
 .page.droite:hover, .page.droite:hover ~ #pageGauche::after, .page.droite:hover ~ #pageDroite::before, .page.droite:hover .sliceR .sliceR {
   animation-play-state: paused !important;
@@ -358,7 +367,6 @@
 .sliceR .sliceR {
   right: calc(0.101010101 * var(--bookSize) - 0.5px);
   background-position: calc(0.202020202 * var(--bookSize)) center;
-  transform-style: preserve-3d;
 }
 .sliceR .sliceR::after {
   background-position: calc(0.6060606061 * var(--bookSize)) center;
@@ -366,7 +374,6 @@
 .sliceR .sliceR .sliceR {
   right: calc(0.101010101 * var(--bookSize) - 0.5px);
   background-position: calc(0.303030303 * var(--bookSize)) center;
-  transform-style: preserve-3d;
 }
 .sliceR .sliceR .sliceR::after {
   top: 0;
@@ -376,7 +383,6 @@
 .sliceR .sliceR .sliceR .sliceR {
   right: calc(0.101010101 * var(--bookSize) - 0.5px);
   background-position: calc(0.404040404 * var(--bookSize)) center;
-  transform-style: preserve-3d;
 }
 .sliceR .sliceR .sliceR .sliceR::after {
   top: 0;
@@ -386,7 +392,6 @@
 .sliceR .sliceR .sliceR .sliceR .sliceR {
   right: calc(0.101010101 * var(--bookSize) - 0.5px);
   background-position: calc(0.5050505051 * var(--bookSize)) center;
-  transform-style: preserve-3d;
 }
 .sliceR .sliceR .sliceR .sliceR .sliceR::after {
   top: 0;
@@ -396,7 +401,6 @@
 .sliceR .sliceR .sliceR .sliceR .sliceR .sliceR {
   right: calc(0.101010101 * var(--bookSize) - 0.5px);
   background-position: calc(0.6060606061 * var(--bookSize)) center;
-  transform-style: preserve-3d;
 }
 .sliceR .sliceR .sliceR .sliceR .sliceR .sliceR::after {
   top: 0;
@@ -406,7 +410,6 @@
 .sliceR .sliceR .sliceR .sliceR .sliceR .sliceR .sliceR {
   right: calc(0.101010101 * var(--bookSize) - 0.5px);
   background-position: calc(0.7070707071 * var(--bookSize)) center;
-  transform-style: preserve-3d;
 }
 .sliceR .sliceR .sliceR .sliceR .sliceR .sliceR .sliceR::after {
   top: 0;
@@ -486,104 +489,4 @@
   100% {
     transform: translateX(-50vw) translateZ(-1000px) scale(0);
   }
-}
-/*
-@keyframes waitingRight {
-    0% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-
-    2% {
-        background:url('../divers/img/imgRWait1.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-
-    70% {
-        background:url('../divers/img/imgRWait1.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity:1;
-    }
-    79% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity:.9;
-    }
-    81% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity:.9;
-    }
-    90% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity:1;
-    }
-    100% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-}
-
-@keyframes waitingLeft {
-    0% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    20% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity: 1;
-    }
-    29% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity: .9;
-    }
-    31% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity: .9;
-    }
-    40% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity: 1;
-    }
-    97% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    98% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    100% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-}
-*//*# sourceMappingURL=book.css.map */
+}/*# sourceMappingURL=book.css.map */
