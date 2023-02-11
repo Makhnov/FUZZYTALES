@@ -56,7 +56,7 @@
     transform-origin: right;
     transform: rotateX(40deg) rotate(-10deg) translateY(150px);
     overflow: visible;
-    cursor: pointer;
+    //cursor: pointer;
 
     &:hover .page.droite,
     &:hover #pageGauche::after,
@@ -102,6 +102,7 @@
         }
     }
 }
+
 
 #pageGauche {
     &::after {
@@ -255,11 +256,22 @@
 }
 
 .page.droite {
+    position: absolute;
     visibility: visible;
     transform-origin: right;
     transform: translateX(6px) translateZ(6px) rotateY(179deg);
-    cursor: pointer;
 
+    &::after {
+        position: absolute;
+        cursor: pointer;
+        content:'';
+        top:0;
+        left:0;
+        height: var(--bookSize);
+        width: calc(70 / 99 * var(--bookSize));
+        background-color: rgba(0, 255, 255, 0.468);
+    }
+    
     &:hover,
     &:hover ~ #pageGauche::after,
     &:hover ~ #pageDroite::before,
@@ -271,7 +283,6 @@
 .sliceR {
     background-image:var(--bookImgBack);
     background-size:calc(70 / 99 * var(--bookSize)) var(--bookSize);
-
     right:0px;
     background-position: calc(10 / 99 * var(--bookSize)) center;
 
@@ -294,7 +305,6 @@
     .sliceR {
         right:calc(10 / 99 * var(--bookSize) - .5px);
         background-position: calc(20 / 99 * var(--bookSize)) center;
-        transform-style:preserve-3d;
         
         &::after {
             background-position: calc(60 / 99 * var(--bookSize)) center;
@@ -303,7 +313,6 @@
         .sliceR {
             right:calc(10 / 99 * var(--bookSize) - .5px);
             background-position: calc(30 / 99 * var(--bookSize)) center;
-            transform-style:preserve-3d;
             
             &::after {
                 top:0;
@@ -314,7 +323,6 @@
             .sliceR {
                 right:calc(10 / 99 * var(--bookSize) - .5px);
                 background-position: calc(40 / 99 * var(--bookSize)) center;
-                transform-style:preserve-3d;
                 
                 &::after {
                     top:0;
@@ -325,7 +333,6 @@
                 .sliceR {
                     right:calc(10 / 99 * var(--bookSize) - .5px);
                     background-position: calc(50 / 99 * var(--bookSize)) center;
-                    transform-style:preserve-3d;
                     
                     &::after {
                         top:0;
@@ -336,7 +343,6 @@
                     .sliceR {
                         right:calc(10 / 99 * var(--bookSize) - .5px);
                         background-position: calc(60 / 99 * var(--bookSize)) center;                
-                        transform-style:preserve-3d;
                         
                         &::after {
                             top:0;
@@ -347,7 +353,6 @@
                         .sliceR {
                             right:calc(10 / 99 * var(--bookSize) - .5px);
                             background-position: calc(70 / 99 * var(--bookSize)) center;
-                            transform-style:preserve-3d;
                             
                             &::after {
                                 top:0;
@@ -448,104 +453,3 @@
         transform: translateX(-50vw) translateZ(-1000px) scale(0);
     }
 }
-
-/*
-@keyframes waitingRight {
-    0% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-
-    2% {
-        background:url('../divers/img/imgRWait1.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-
-    70% {
-        background:url('../divers/img/imgRWait1.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity:1;
-    }
-    79% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity:.9;
-    }
-    81% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity:.9;
-    }
-    90% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity:1;
-    }
-    100% {
-        background:var(--bookImgFront);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-}
-
-@keyframes waitingLeft {
-    0% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    20% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity: 1;
-    }
-    29% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity: .9;
-    }
-    31% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(4px);
-        opacity: .9;
-    }
-    40% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        filter:blur(0px);
-        opacity: 1;
-    }
-    97% {
-        background:url('../divers/img/imgLWait2.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    98% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-    100% {
-        background:var(--bookImgBack);
-        background-size:cover;
-        background-repeat: no-repeat;
-    }
-}
-*/

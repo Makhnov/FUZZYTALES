@@ -3,6 +3,7 @@ const read = document.getElementById('readBook');
 const book = document.getElementById('book');
 const menuBook = document.getElementById('menuBook');
 const header = document.querySelector('header');
+const mts = document.getElementById('moreToSee');
 const headerColorBefore = getComputedStyle(racine).getPropertyValue('--mainColor0L');
 const headerColorAfter = getComputedStyle(racine).getPropertyValue('--mainColor0');
 const slices = document.getElementsByClassName('sliceR');
@@ -54,42 +55,46 @@ function PHPtoJS(tab, str) {
     let tabTT = [];
     
     for (let i = 0; i < 16; i++) {
-        tabTT.push(tab[i][0], tab[i][1], tab[i][2]);
-        tabInfos.push(tabTT);
-        tabTT = [];
-
         const image = new Image();
         image.src = tab[i][1];
         imagesLivre.push(image);
         tabImage = imagesLivre.map(image => image.src);
+        tabTT.push(tab[i][0], tabImage[i], tab[i][2]);
+        tabInfos.push(tabTT);
+        tabTT = [];
     }
 
-    return eval(str + "(" + JSON.stringify(tabInfos) + ", "+ JSON.stringify(tabImage) +")");
+    return eval(str + "(" + JSON.stringify(tabInfos) +")");
 }
 
-function affichageImageLivre(tab2, tab) {
-    console.log(tab2);
-    setImage(0, tab[0]);
-    setImage(1, tab[1]);
-    setImage(2, tab[2]);
-    setImage(3, tab[3]);
+function affichageImageLivre(tab) {
+    setImage(0, tab[0][0], tab[0][1]);
+    setImage(1, tab[1][0], tab[1][1]);
+    setImage(2, tab[2][0], tab[2][1]);
+    setImage(3, tab[3][0], tab[3][1]);
+    console.log(tab);
 }
 
-function setImage(pos, url) {
+function setImage(pos, id, url) {
     let urlTemp = "url('"+url+"')";
 
     switch (pos) {
         case 0:
             racine.style.setProperty('--bookImgLeft', urlTemp);
+            pageGauche.value = id;
             break;
         case 1:
             racine.style.setProperty('--bookImgFront', urlTemp);
+            Array.from(slices).forEach(function(slice) {
+                slice.value = id;
+            });
             break;
         case 2:
             racine.style.setProperty('--bookImgBack', urlTemp);
             break;
         case 3:
             racine.style.setProperty('--bookImgRight', urlTemp);
+            pageDroite.value = id;
             break;
     }
 }
@@ -111,39 +116,82 @@ read.addEventListener("change", function() {
 });
 
 pageGauche.addEventListener('click', function() {
-    imageAccueilClicked(1);
+    imageAccueilClicked(1, this.value);
 });
 
 Array.from(slices).forEach(function(slice) {
-  slice.addEventListener('click', function() {
-    imageAccueilClicked(2);
-  });
+    slice.addEventListener('click', function() {
+        imageAccueilClicked(2, this.value);
+    });
 });
 
 pageDroite.addEventListener('click', function() {
-    imageAccueilClicked(3);
+    imageAccueilClicked(3, this.value);
 });
 
+function imageAccueilClicked(url, id) {
 
-
-
-function imageAccueilClicked(url) {
-    console.log(url);
     if (typeof url === 'number') {
         switch (url) {
             case 1:
                 url = getComputedStyle(racine).getPropertyValue('--bookImgLeft');
-                console.log('cas1');
+                //console.log('cas1');
                 break;
             case 2:
-                url = getComputedStyle(racine).getPropertyValue('--bookImgFront') + "&img2=" + getComputedStyle(racine).getPropertyValue('--bookImgBack');
-                console.log('cas2');
+                url = getComputedStyle(racine).getPropertyValue('--bookImgFront');
+                //console.log('cas2');
                 break;
             case 3: 
                 url = getComputedStyle(racine).getPropertyValue('--bookImgRight');
-                console.log('cas3');
+                //console.log('cas3');
                 break;
         }
     }
-    window.location.href = `bibliotheque.php?img1=${url}`;
+
+    //window.location.href = `bibliotheque.php?img1=${url}`;
+    //window.location.href = `zoom.php?img1=${url}`;
+    
+    window.scrollTo(0,0);
+    header.style.height = '125px';
+    header.classList.add('scrolled');
+    header.style.background = headerColorAfter;
+    book.style.background = "linear-gradient(to bottom, #ffffff00, #ffffff00 125px, var(--mainColor0L) 125px, var(--sideColor1L) 100%)";
+    const imageZoom = document.getElementById('imageZoom');
+    imageZoom.classList.add('active');
+    mts.classList.add('active');
+    document.body.style.overflowY = "hidden";
+
+    dataZoom(url, id);
+}
+
+function closeImageZoom() {
+    const imageZoom = document.getElementById('imageZoom');
+    imageZoom.classList.remove('active');
+    mts.classList.remove('active');
+    document.body.style.overflowY = "visible";
+}
+
+function dataZoom(url, id) {
+    console.log('Url : ' + url);
+    console.log('Id :' + id);
+}
+
+function htmlReqImage() {
+    let req = new XMLHttpRequest();
+
+    // Définir la méthode et l'URL de la requête
+    req.open('POST', 'your-php-file.php');
+    
+    // Définir le type de contenu envoyé dans la requête
+    req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+    // Définir la fonction de rappel pour traiter les réponses de la requête
+    req.onload = function() {
+      if (req.status === 200) {
+        console.log(req.responseText);
+      }
+    };
+    
+    // Envoyer les données avec la requête
+    req.send('data=value');
 }

@@ -4,11 +4,14 @@
     </p>
     <label for="readBook" id="menuBook"></label>
     <nav>
-        <ul>
+        <?php
+        hud();
+        ?>
+        <!-- <ul>
             <input type="checkbox" id="ul">
             <li class="upload"></li>
             <li class="profil"></li>
             <li class="album"></li>
-        </ul>
+        </ul> -->
     </nav>
 </header>

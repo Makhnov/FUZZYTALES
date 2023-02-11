@@ -1,3 +1,5 @@
+@import 'variables';
+
 *,::before,::after {
     margin: 0;
     padding: 0;
@@ -206,52 +208,108 @@ footer {
 //   ██████  ██   ██ ███████ ███████ ███████ ██   ██    ██    
 */
 /* search section */
+/* search section */
 .search {
     display: flex;
-    justify-content: center;
     height: 150px;
     width: 100%;
     padding-top: 20px;
+    margin-bottom: 50px;
     /* background-color: rgba(0, 0, 0, .2); */
 }
 
 /* matched items + sort items */
-.search .matches, .sortItems {
+ .matches, .sortItems {
+    width: 30%;
+}
+.matches {
     display: flex;
+    justify-content: flex-end;
     align-items: flex-end;
-    margin: 15px 15%;
+}
+.sortItems {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 /* search input */
-.searchBar form {
+.searchBar {
     display: flex;
     align-items: flex-start;
-    margin-left: 35px;
+    justify-content: center;
+    width: 40%;
+    position: relative;
+
+}
+.searchBar form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: 20px;
 }
 
 /* search input styling */
 .searchBar form input {
     all: unset;
-    width: 250px;
-    height: 40px;
+    width: 100%;
+    height: 50px;
+    margin-left: 104px;
+    margin-right: 40px;
     background-color: rgba(0, 0, 0, .2);
-    border-radius: 20px;
-    padding-left: 15px;
+    /* border-radius: 20px; */
+    padding-left: 10px;
     padding-right: 35px;
 }
 /* place search button on top of search input */
 .searchBar form button {
     all: unset;
-    border-radius: 15px;
-    transform: translate(-35px,2px);
+    border-top-right-radius: 20px 20px;
+    border-bottom-right-radius: 20px 20px;
+    position: absolute;
+    right: 0;
+    height: 50px;
+    width: 40px;
+    /* border-left: 2px solid grey; */
+    background-color: rgba(0, 0, 0, .2);
+    cursor: pointer;
 }
 /* searchbar outline while active */
-form input:focus-within { 
-    outline: 2px solid #F55050; 
-}
+/* form input:focus-within { 
+    : 2px solid #F55050; 
+} */
 
 .searchBar form button ion-icon{
     background: none;
     font-size: 24px;
+    padding-left: 7px;
+    padding-top: 7px;
+}
+
+.searchBar select {
+    position: absolute;
+    left: 20px;
+    height: 50px;
+    border: none;
+    border-top-left-radius: 20px 20px;
+    border-bottom-left-radius: 20px 20px;
+    font-size:15px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, .2);
+    /* border-right: 2px solid grey; */
+}
+
+.searchBar select option:active,
+.searchBar select option:focus,
+.searchBar select:checked {
+    border: 2px solid #F55050;
+}
+
+.searchBar select option:checked{
+    text-align: center;
+}
+
+.searchBar select option {
+    background-color: white;
 }
 
 /* 

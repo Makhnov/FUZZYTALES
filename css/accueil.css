@@ -13,10 +13,10 @@
   --bookSize:clamp(200px, 50vh, 600px);
   --bookBorder:rgb(50, 50, 50);
   --bookPage:whitesmoke;
-  --bookImgLeft:url("../divers/img/imgLWait1.jpg");
-  --bookImgFront:url("../divers/img/1.jpg");
-  --bookImgBack: url("../divers/img/2.jpg");
-  --bookImgRight:url("../divers/img/imgRwait1.jpg");
+  --bookImgLeft:"";
+  --bookImgFront:"";
+  --bookImgBack:"";
+  --bookImgRight:"";
   --vitessePage:4.7s;
 }
 
@@ -25,6 +25,9 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   background-color: var(--mainColor1);
+}
+
+body {
   overflow-x: hidden;
 }
 
@@ -210,7 +213,20 @@ header nav ul li.profil {
   width: 60px;
   transform: translate(-50%, -50%) rotate(45deg);
 }
-#moreToSee .arrow.top {
+
+#moreToSee.active {
+  background-color: var(--mainColor1);
+}
+
+#moreToSee:not(.active) {
+  position: relative;
+  top: 50px;
+  left: 50%;
+  height: 60px;
+  width: 60px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+#moreToSee:not(.active) .arrow.top {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -220,7 +236,7 @@ header nav ul li.profil {
   border-radius: 0 0 3px 0;
   animation: flecheMid var(--vitessePage) linear infinite;
 }
-#moreToSee .arrow.mid {
+#moreToSee:not(.active) .arrow.mid {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -232,7 +248,7 @@ header nav ul li.profil {
   border-radius: 0 0 3px 0;
   animation: flecheBottom var(--vitessePage) linear infinite;
 }
-#moreToSee .arrow.bottom {
+#moreToSee:not(.active) .arrow.bottom {
   position: absolute;
   mix-blend-mode: normal;
   top: -8px;
@@ -301,9 +317,8 @@ header nav ul li.profil {
 }
 
 #notNewb {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 100px);
   width: 100vw;
-  padding-bottom: 100px;
   background: linear-gradient(to bottom, var(--sideColor1L), var(--mainColor0F));
 }
 

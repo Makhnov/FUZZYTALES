@@ -78,7 +78,7 @@ function nbAbonnes($bdd, $id_utilisateur, $utilisateur_suiveur)
 function search($bdd, $recherche)
 {
     try {
-        $requete = $bdd->prepare("SELECT :pseudo_utilisateur from utilisateurs where pseudo_utilisateur LIKE :recherche OR pseudo_utilisateur LIKE :recherche");
+        $requete = $bdd->prepare("SELECT :pseudo_utilisateur from utilisateurs where pseudo_utilisateur LIKE :recherche");
         $requete->execute(array(
             'recherche' => "%$recherche%"
         ));
