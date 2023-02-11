@@ -1,20 +1,26 @@
 <?php 
 // include('../model/connect.php');
+$datas = [];
 function displayTagOnImage($bdd){
     $response = $bdd->query('
-        SELECT images.id_image, images.url_image, tags.nom_tag AS tag_name
-        FROM images
-        JOIN nommer ON images.id_image = nommer.id_image
-        JOIN tags ON nommer.id_tag = tags.id_tag
+    SELECT images.id_image, images.url_image, GROUP_CONCAT(tags.nom_tag) as tags
+    FROM images
+    JOIN nommer ON images.id_image = nommer.id_image
+    JOIN tags ON nommer.id_tag = tags.id_tag
+    GROUP BY images.id_image
+    limit 50;
     ');
-    $datas = [];
 
-    while($row = $response->fetch()){
-        print_r($row);
-        array_push($datas,$row['url_image']);
-        array_push($datas,$row['nom_tag']);
-    }
+    global $datas;
+    while($row = $response->fetch(PDO::FETCH_NAMED)){
+        // print_r($row);
+        // array_push($datas,$row['url_image']);
+        // array_push($datas,$row['tag_name']);
+        array_push($datas,$row);
 }
+}
+displayTagOnImage($bdd);
+
 // Affichage de toutes les images 
 function displayAll($bdd){
     try{
