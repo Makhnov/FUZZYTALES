@@ -41,6 +41,8 @@ function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
                 echo "Votre email ou mot de passe est incorrect";
         } 
         }
+        return $_SESSION['logged_in'];
+        
       } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
       }
