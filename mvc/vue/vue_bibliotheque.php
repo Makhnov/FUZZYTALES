@@ -54,10 +54,13 @@
                         echo "<img src=".$datas[$i]['url_image'].">";
                         echo "<div class="."tags".">";
                             echo "<ul>";
-                            $keys = ($datas[$i]['tags']); //convert tags of each image into string
-                            $tags = explode(",", $keys); // split tags by ","
+                            //convert tags of each image into string
+                            $keys = ($datas[$i]['tags']); 
+                            // split tags by ","
+                            $tags = explode(",", $keys); 
+                            // create <li> for each tag
                             foreach ($tags as $tag) {
-                            echo "<li>". "<a href=".$tag.">" . $tag . "</a>" . "</li>"; // create <li> for each tag
+                            echo "<li>". "<a href=".$tag.">" . $tag . "</a>" . "</li>"; 
                             }
                             echo "</ul>";
                         echo "</div>";
