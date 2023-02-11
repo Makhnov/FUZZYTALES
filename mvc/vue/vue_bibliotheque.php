@@ -11,7 +11,7 @@
     <header></header>
     <section class="search">
         <div class="matches">
-            <p><strong>Watches: </strong>9 Matches</p>
+            <h3><strong><?php echo $count ?> results</strong></h3>
         </div>
         <div class="searchBar">
             <form action="" method="get" id="search">
