@@ -2,6 +2,7 @@
     function promptImgAlgo() {
         $bdd = 'fuzzytales';
         $data = getImgAlgo($bdd);
+                
         ?>
             <script> // On lance un script pour afficher les images dans le DOM en JS.
                 let data = <?php echo json_encode($data);?>; // Les données sont transmises de PHP à JS (variable 'data').

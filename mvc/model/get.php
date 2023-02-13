@@ -89,22 +89,30 @@ function search($bdd, $recherche)
 }
 
 
-
-
-
-
 // SELECTS GENERAUX //
 
 // IMAGES //
 
-function getImgAlgo($bdd)
-{
+function getImgAlgo($bdd) {
     try {
         $PDO = connectNico($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
-        $data = $PDO->query("SELECT images.id_image, url_image, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC");
+        $data = $PDO->query("SELECT images.id_image, images.titre_image, images.url_image, images.date_image, images.description_image, images.id_utilisateur, images.id_tag, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC");
         $data = $data->fetchAll();
-
+        
         return $data;
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+}
+
+// USERS //
+function getUsersID($bdd, $id) {
+    try {
+        $PDO = connectNico($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
+        $data = $PDO->query("SELECT utilisateurs.id_utilisateur, utilisateurs.pseudo_utilisateur, utilisateurs.avatar_utilisateur from utilisateurs where utilisateurs.id_utilisateur LIKE $id");
+        $data = $data->fetchAll();
+        return $data;
+
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }

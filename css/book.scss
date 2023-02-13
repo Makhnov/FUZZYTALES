@@ -41,7 +41,6 @@
     }
 }
 
-
 //H1 dans accueil.scss
 
 #livre {
@@ -58,12 +57,12 @@
     overflow: visible;
     //cursor: pointer;
 
-    &:hover .page.droite,
-    &:hover #pageGauche::after,
-    &:hover #pageDroite::before,
-    &:hover .sliceR .sliceR {
-        animation-play-state: paused!important;
-    }
+    // &:hover .page.droite,
+    // &:hover #pageGauche::after,
+    // &:hover #pageDroite::before,
+    // &:hover .sliceR .sliceR {
+    //     animation-play-state: paused!important;
+    // }
             
     box-shadow:
     0 0 25px 10px #fff,
@@ -103,7 +102,6 @@
     }
 }
 
-
 #pageGauche {
     &::after {
         top:0;
@@ -111,6 +109,8 @@
         background:var(--bookImgLeft);
         background-size:cover;
         background-repeat: no-repeat;
+        cursor: pointer;
+
     }
 }
 
@@ -120,6 +120,8 @@
         width:calc(70 / 99 * var(--bookSize) - 3px)!important;
         background-image: var(--bookImgRight);
         background-size: cover;
+        cursor: pointer;
+
     }
 }
 
@@ -183,7 +185,6 @@
 .page.gauche {
     transform-origin: right;
     transform: translateZ(6px) rotateY(1deg);
-    cursor: pointer;
 }
 
 .sliceL {
@@ -256,6 +257,8 @@
 }
 
 .page.droite {
+    pointer-events: none;
+
     position: absolute;
     visibility: visible;
     transform-origin: right;
@@ -263,21 +266,19 @@
 
     &::after {
         position: absolute;
-        cursor: pointer;
         content:'';
         top:0;
         left:0;
         height: var(--bookSize);
         width: calc(70 / 99 * var(--bookSize));
-        background-color: rgba(0, 255, 255, 0.468);
     }
     
-    &:hover,
-    &:hover ~ #pageGauche::after,
-    &:hover ~ #pageDroite::before,
-    &:hover .sliceR .sliceR  {
-        animation-play-state: paused!important;
-    }
+    // &:hover,
+    // &:hover ~ #pageGauche::after,
+    // &:hover ~ #pageDroite::before,
+    // &:hover .sliceR .sliceR  {
+    //     animation-play-state: paused!important;
+    // }
 }
 
 .sliceR {
@@ -285,6 +286,8 @@
     background-size:calc(70 / 99 * var(--bookSize)) var(--bookSize);
     right:0px;
     background-position: calc(10 / 99 * var(--bookSize)) center;
+    pointer-events: visible;
+    cursor: pointer;
 
     &::after {
         position: absolute;

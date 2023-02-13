@@ -63,14 +63,14 @@
   background: rgba(0, 0, 0, 0.75);
   -webkit-backdrop-filter: blur(1.5px);
           backdrop-filter: blur(1.5px);
-  pointer-events: none;
+  cursor: crosshair;
 }
 
 #imageZoom.active #containerZoom .modalImage {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--mainColor1);
   width: 75%;
   height: 100%;
 }
@@ -82,11 +82,15 @@
 }
 #imageZoom.active #containerZoom .modalDesc {
   width: 25%;
-  height: 100%;
-  background-color: rgb(214, 214, 214);
+  height: 80vh;
+  background-color: var(--mainColor0F);
+  display: grid;
+  grid-template-rows: 0px 10vh 30vh calc(40vh - 30px);
+  row-gap: 10px;
 }
 #imageZoom.active #containerZoom .closeModal {
-  height: 40px;
+  height: 0px;
+  grid-row: 1;
 }
 #imageZoom.active #containerZoom .closeModal button {
   all: unset;
@@ -99,6 +103,7 @@
   cursor: pointer;
 }
 #imageZoom.active #containerZoom .userDesc {
+  grid-row: 2;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -114,6 +119,7 @@
   overflow: hidden;
 }
 #imageZoom.active #containerZoom .imgDesc {
+  grid-row: 3;
   display: flex;
   flex-direction: column;
   margin: 30px 5%;
@@ -125,4 +131,15 @@
   padding: 5px 10px;
   border-radius: 15px;
   cursor: pointer;
+}
+#imageZoom.active #containerZoom .likes {
+  grid-row: 4;
+  height: 100%;
+  display: grid;
+  cursor: pointer;
+}
+#imageZoom.active #containerZoom .likes img, #imageZoom.active #containerZoom .likes span {
+  position: absolute;
+  align-self: center;
+  justify-self: center;
 }/*# sourceMappingURL=zoom.css.map */

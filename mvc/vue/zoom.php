@@ -2,7 +2,7 @@
     <button id="closeImage" onclick="closeImageZoom()">  
         <i class="fas fa-times"></i>    
     </button>
-    <div id="imageOverlay"></div>
+    <div id="imageOverlay" onclick="closeImageZoom()"></div>
     <div id ="containerZoom" class="modal imgZoom">
         <div class="modalImage">
             <img src="../../divers/img/test2.jpg" alt="">
@@ -26,6 +26,9 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos nesciunt cupiditate amet voluptatem
                     corrupti ipsam maxime, blanditiis est alias ipsa dignissimos, eum fugit aut esse nulla, eveniet
                     recusandae officia repellat?</p>
+            </div>
+            <div class="likes">
+                <img src="../../divers/img/likes.png" height="100px" width="100px" alt=""><span></span>
             </div>
         </div>
     </div>

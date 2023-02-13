@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="page droite">
+            <div class="page droite" id="pageMobile">
                 <div class="slice sliceR">
                     <div class="slice sliceR">
                         <div class="slice sliceR">
