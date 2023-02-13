@@ -75,6 +75,8 @@
     include('../vue/footer.php'); // PIED DE PAGE
     ?>
     <script src="../../js/book.js"></script>
+    <script src="../../js/accueil.js"></script>
+    
     <?php
         promptImgAlgo()
     ?>

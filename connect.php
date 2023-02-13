@@ -23,6 +23,7 @@
             <form action="controller_login.php" method="post">
                   <input type="email" placeholder="Enter Email" name="mail_utilisateur" required>
                   <input type="password" placeholder="Enter Password" name="mdp_utilisateur" required>
+            
                   <button type="submit" id="logIn">Login</button>
               </form>
         </div>

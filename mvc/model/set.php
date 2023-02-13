@@ -34,7 +34,7 @@ function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
                 session_start();
                 $_SESSION['logged_in'] = true;
                 $_SESSION['mail_utilisateur'] = $mail_utilisateur;
-                header("Location: ../controller/bibliotheque.php");
+                header("Location: ../controller/controller_bibliotheque.php");
           
             }else {
                 // Login failed
