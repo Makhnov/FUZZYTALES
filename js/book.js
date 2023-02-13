@@ -293,28 +293,3 @@ function repriseBook() {
         animBook(false);
     }
 }
-
-livre.addEventListener("mouseenter", function () {
-    repriseLivre = false;
-    //console.log(repriseLivre);
-    pauseBook();
-});
-
-livre.addEventListener("mouseleave", function () {
-    repriseLivre = true;
-    //console.log(repriseLivre);
-    repriseBook();
-});
-
-pageMobile.addEventListener("mouseenter", function () {
-    reprisePage = false;
-    //console.log(reprisePage);
-    pauseBook();
-});
-
-pageMobile.addEventListener("mouseleave", function () {
-    reprisePage = true;
-    //console.log(reprisePage);
-    repriseBook();
-});
-*/

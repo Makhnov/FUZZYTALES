@@ -138,7 +138,7 @@
         </div>
     </section>
     <!-- image modal -->
-    <div class="modal imgZoom active">
+    <div class="modal imgZoom">
         <div class="modalImage">
             <img src="divers/img/test2.jpg" alt="">
         </div>
