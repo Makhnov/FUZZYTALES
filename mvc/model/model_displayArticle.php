@@ -1,20 +1,25 @@
 <?php 
 // include('../model/connect.php');
+$datas = [];
 function displayTagOnImage($bdd){
     $response = $bdd->query('
         SELECT images.id_image, images.url_image, tags.nom_tag AS tag_name
         FROM images
         JOIN nommer ON images.id_image = nommer.id_image
         JOIN tags ON nommer.id_tag = tags.id_tag
+        limit 15
     ');
-    $datas = [];
+
+    global $datas;
 
     while($row = $response->fetch()){
-        print_r($row);
+        // print_r($row);
         array_push($datas,$row['url_image']);
-        array_push($datas,$row['nom_tag']);
+        array_push($datas,$row['tag_name']);
     }
+    return $datas;
 }
+displayTagOnImage($bdd);
 // Affichage de toutes les images 
 function displayAll($bdd){
     try{
