@@ -41,6 +41,13 @@
     </section>
     <section class="gallerySect">
         <div class="gallery">
+            <!-- upload image modal -->
+            <div class="card upload">
+                <div class="cardContent" data-modal-target="#upload-image">
+                    <ion-icon name="add-circle-outline"></ion-icon>
+                </div>
+            </div>
+            <!-- upload image modal -->
             <div class="card">
                 <div class="cardContent">
                     <img src="divers/img/test.jpg" alt="">
@@ -163,10 +170,25 @@
         </div>
     </div>
     <div id="overlay"></div>
+    <!-- upload image modal -->
+    <div class="modal userAcc upload" id="upload-image">
+        <span data-close-button class="close-button">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="logIn">
+            <form action="userProfile.php" method="post">
+                <input type="text" id="titreImg" name="titreImg" placeholder="Titre" required>
+                <textarea id="descImg" name="descImg"
+                rows="5" cols="35" placeholder="Description"></textarea>
+                <input type="file" id="userImg" name="userImg">
+                <button type="submit" id="signUp">Submit</button>
+            </form>
+        </div>
+    </div>
     <footer></footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="js/tornike.js"></script>
+    <script src="../../js/tornike.js"></script>
 </body>
 
 </html>

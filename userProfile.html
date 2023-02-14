@@ -41,6 +41,11 @@
     </section>
     <section class="gallerySect">
         <div class="gallery">
+            <div class="card upload">
+                <div class="cardContent" data-modal-target="#upload-image">
+                    <ion-icon name="add-circle-outline"></ion-icon>
+                </div>
+            </div>
             <div class="card">
                 <div class="cardContent">
                     <img src="divers/img/test.jpg" alt="">
@@ -163,6 +168,20 @@
         </div>
     </div>
     <div id="overlay"></div>
+    <div class="modal userAcc" id="upload-image">
+        <span data-close-button class="close-button">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="logIn">
+            <form action="controller_login.php" method="post">
+                <input type="text" id="titreImg" name="titreImg" placeholder="Titre">
+                <textarea id="descImg" name="descImg"
+                rows="5" cols="35" placeholder="Description"></textarea>
+                <input type="file" id="userImg" name="userImg">
+                <button type="submit" id="signUp">Submit</button>
+            </form>
+        </div>
+    </div>
     <footer></footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
