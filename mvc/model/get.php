@@ -78,7 +78,14 @@ function nbAbonnes($bdd, $id_utilisateur, $utilisateur_suiveur)
 function search($bdd, $recherche)
 {
     try {
-        $requete = $bdd->prepare("SELECT :pseudo_utilisateur from utilisateurs where pseudo_utilisateur LIKE :recherche");
+        $requete = $bdd->prepare("SELECT utilisateurs.pseudo_utilisateur, tags.nom_tag, categories.nom_categorie from utilisateurs
+        inner join images
+        on utilisateurs.id_utilisateur = images.id_utilisateur
+        inner join appartenir
+        on images.id_image = appartenir.id_image
+        inner join categories
+        on appartenir.id_categorie = categorie.id_categorie
+        where pseudo_utilisateur LIKE :recherche");
         $requete->execute(array(
             'recherche' => "%$recherche%"
         ));
