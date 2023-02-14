@@ -138,7 +138,7 @@ img.portrait {
     align-items: center;
     position: absolute;
     overflow-x: hidden;
-    background-color: grey;
+    background-color: rgba(165, 165, 165, 0.7);
     height: 30px;
     width: 100%;
     bottom: 0;
@@ -171,7 +171,7 @@ a:visited {
     color: white;
 }
 .tags ul a{
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(245, 80, 80, 1);
     border-radius: 5px;
     padding: 3px 10px;
     text-decoration: none;
@@ -568,11 +568,11 @@ input:-webkit-autofill:active {
 
 
 /*
- ██    ██ ███████ ███████ ██████       █████   ██████  ██████ 
-██    ██ ██      ██      ██   ██     ██   ██ ██      ██      
-██    ██ ███████ █████   ██████      ███████ ██      ██      
-██    ██      ██ ██      ██   ██     ██   ██ ██      ██      
- ██████  ███████ ███████ ██   ██     ██   ██  ██████  ██████ 
+ ██    ██ ███████ ███████ ██████  
+██    ██ ██      ██      ██   ██        
+██    ██ ███████ █████   ██████         
+██    ██      ██ ██      ██   ██        
+ ██████  ███████ ███████ ██   ██     
 */
 .profileWrapper {
     width: 100vw;

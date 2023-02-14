@@ -63,15 +63,15 @@
                         echo "<img src=".$datas[$i]['url_image'].">";
                         echo "<div class="."tags".">";
                             echo "<ul>";
-                            //convert tags of each image into string
+                            //récupérer les tags de chaque image (chaîne)
                             $keys = ($datas[$i]['tags']); 
-                            // split tags by ","
+                            //convertir les tags en tableau
                             $tags = explode(",", $keys); 
-                            // create <li> for each tag
+                            //créer une liste pour chaque tag
                             foreach ($tags as $tag) {
-                                //redirect 
+                            //rediriger vers la page de tag
                             $redirect = "controller_bibliotheque.php?inputSearch=".$tag."&search=all";
-                                //redirect
+
                             echo "<li>"; 
                             echo '<a href="'.$redirect.'">'. $tag ."</a>";
                             echo "</li>";
@@ -90,8 +90,8 @@
         echo "</div>";
         echo "</section>";
         ?>
-        <script src="../../js/tornike.js"></script>
 
+    <script src="../../js/tornike.js"></script>
     <footer></footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
