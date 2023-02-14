@@ -28,20 +28,21 @@ function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
     
         // Fetch the result
         $result = $requete->fetch();
-        print_r($result);
         if ($result) {
             if(password_verify($mdp_utilisateur,$result['mdp_utilisateur'])){
                 session_start();
                 $_SESSION['logged_in'] = true;
                 $_SESSION['mail_utilisateur'] = $mail_utilisateur;
-                header("Location:../controller/controller_bibliotheque.php");
+                header("Location:../controller/controller_profile.php?mail=$mail_utilisateur");
           
             }else {
                 // Login failed
                 $loginError = "Votre email ou mot de passe est incorrect";
         } 
         }
+       
         return $_SESSION['logged_in'];
+        $requete->closeCursor();
         
       } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();

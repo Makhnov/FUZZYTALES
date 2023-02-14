@@ -41,13 +41,6 @@
     </section>
     <section class="gallerySect">
         <div class="gallery">
-            <!-- upload image modal -->
-            <div class="card upload">
-                <div class="cardContent" data-modal-target="#upload-image">
-                    <ion-icon name="add-circle-outline"></ion-icon>
-                </div>
-            </div>
-            <!-- upload image modal -->
             <div class="card">
                 <div class="cardContent">
                     <img src="divers/img/test.jpg" alt="">
