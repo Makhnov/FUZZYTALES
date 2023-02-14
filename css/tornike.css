@@ -460,7 +460,11 @@ footer {
 .connectWrapper .previousPage button ion-icon{
     font-size: 3rem;
 }
-
+.connectWrapper .loginError {
+    position: absolute;
+    bottom: 15%;
+    color: white;
+}
 .logIn, .signUp {
     display: flex;
     flex-direction: column;

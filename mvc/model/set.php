@@ -17,7 +17,7 @@ function ajoutUtilisateur($bdd, $pseudo_utilisateur, $mail_utilisateur, $mdp)
     }
 }
 function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
-    
+        $loginError = "";
       try {
    
         // Prepare the SQL statement
@@ -38,7 +38,7 @@ function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
           
             }else {
                 // Login failed
-                echo "Votre email ou mot de passe est incorrect";
+                $loginError = "Votre email ou mot de passe est incorrect";
         } 
         }
         return $_SESSION['logged_in'];
