@@ -14,7 +14,8 @@ const headerColorAfter = getComputedStyle(racine).getPropertyValue('--mainColor0
 const slices = document.getElementsByClassName('sliceR');
 
 class imgFuzzy {
-    constructor(id, titre, url, date, description, id_user, tag, likes) {
+    constructor(id, titre, url, date,
+        description, id_user, tag, likes) {
         this.id = id;
         this.titre = titre;
         this.url = url;
@@ -86,7 +87,10 @@ function PHPtoJS(tab, str) {
         let image = new Image();
         image.src = tab[i]['url_image'];
 
-        objImgTemp = new imgFuzzy(tab[i][0], tab[i][1], image.src, tab[i][3], tab[i][4], tab[i][5], tab[i][6], tab[i][7], tab[i][8]);
+        objImgTemp = new imgFuzzy(
+            tab[i][0], tab[i][1], image.src,
+            tab[i][3], tab[i][4], tab[i][5],
+            tab[i][6], tab[i][7], tab[i][8]);
         tabAccueil.push(objImgTemp);
     }
 
@@ -131,9 +135,6 @@ function animBook() {
     interval = setInterval(function () {
         for (let i = 0; i < 4; i++) {
             setImage(i, tabAccueil[((2 * iterationPage) + i) % 16]);
-            //console.log("iter" + i + " :");
-            //console.log("Modulo :" + ((2 * iterationPage) + i) % 16);
-            //console.log("image :" + tabImage[((2 * iterationPage) + i) % 16])
         }
         iterationPage++;
     }, vPage);
