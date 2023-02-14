@@ -1,4 +1,28 @@
 @charset "UTF-8";
+:root {
+  --mainColor0:rgb(245, 80, 80);
+  --mainColor0F:rgba(245, 80, 80, 0.8);
+  --mainColor1:rgb(245, 220, 220);
+  --sideColor0:rgb(21, 1, 54);
+  --sideColor1:rgb(41, 23, 81);
+  --sideColor2:rgb(61, 42, 108);
+  --mainColor0L:rgba(245, 80, 80, .65);
+  --mainColor1L:rgba(245, 220, 220, .65);
+  --sideColor0L:rgba(21, 1, 54, .5);
+  --sideColor1L:rgba(41, 23, 81, .5);
+  --sideColor2L:rgba(61, 42, 108, .5);
+  --bookSize:clamp(200px, 50vh, 600px);
+  --bookBorder:rgb(50, 50, 50);
+  --bookPage:whitesmoke;
+  --bookImgLeft:"";
+  --bookImgFront:"";
+  --bookImgBack:"";
+  --bookImgRight:"";
+  --vitessePage:2.7s;
+  --zoomImage:"";
+  --zoomImageUser:"";
+}
+
 /* 
 ███    ███  ██████  ██████   █████  ██      
 ████  ████ ██    ██ ██   ██ ██   ██ ██      
@@ -31,10 +55,10 @@
   position: absolute;
   display: flex;
   z-index: 500;
-  top: 10vh;
-  left: 10vw;
-  width: 80vw;
-  height: 80vh;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
   background-color: rgb(155, 155, 155);
 }
 #imageZoom.active #closeImage {
@@ -70,22 +94,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--mainColor1);
-  width: 75%;
-  height: 100%;
-}
-#imageZoom.active #containerZoom .modalImage img {
-  max-width: 100%;
-  max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  background: var(--zoomImage);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60vw;
+  height: 90vh;
 }
 #imageZoom.active #containerZoom .modalDesc {
-  width: 25%;
-  height: 80vh;
+  width: 30vw;
+  height: 90vh;
   background-color: var(--mainColor0F);
   display: grid;
-  grid-template-rows: 0px 10vh 30vh calc(40vh - 30px);
+  grid-template-rows: 0px 10vh 30vh calc(50vh - 30px);
   row-gap: 10px;
 }
 #imageZoom.active #containerZoom .closeModal {
@@ -106,16 +127,22 @@
   grid-row: 2;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   margin: 10px 5%;
 }
+#imageZoom.active #containerZoom .userDesc h2 {
+  padding: 50px;
+  width: calc(100% - 50px);
+}
 #imageZoom.active #containerZoom .modalDesc .profileImg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
+  min-width: 150px;
+  min-height: 150px;
   border-radius: 50%;
+  background: var(--zoomImageUser);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 #imageZoom.active #containerZoom .imgDesc {

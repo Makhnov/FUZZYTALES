@@ -29,6 +29,7 @@ class imgFuzzy {
 let tabAccueil = [];
 let imagesLivre = [];
 let objImgTemp;
+let dataUser;
 
 let vitessePage = getComputedStyle(racine).getPropertyValue('--vitessePage');
 let vPage = parseFloat(vitessePage.replace('s', '')) * 999;
@@ -77,7 +78,7 @@ window.addEventListener('scroll', function () {
 // RECUP DATAS (PHP) //
 function PHPtoJS(tab, str) {
 
-    console.log(tab);
+    //console.log(tab);
 
     for (let i = 0; i < 16; i++) {
         //console.log(tab[i]);
@@ -178,7 +179,7 @@ function imageClicked(e, tab) {
     document.body.style.overflowY = "hidden";
 
     const zoomBloc = document.getElementById('containerZoom');
-    const zoomImage = zoomBloc.children[0].children[0];
+    const zoomImage = zoomBloc.children[0];
     const zoomUserBloc = zoomBloc.children[1].children[1];
     const zoomImgBloc = zoomBloc.children[1].children[2];
 
@@ -193,18 +194,41 @@ function imageClicked(e, tab) {
             break;
         }
     }
-    zoomImage.src = imageChoisie['url'];
-    zoomImage.style.minHeight = "100%";
+    racine.style.setProperty('--zoomImage', "url('" + imageChoisie['url'] + "')");
 
-    zoomImgBloc.children[0].textContent = imageChoisie['titre'];
-    zoomImgBloc.children[1].textContent = imageChoisie['description'];
+    zoomImgBloc.children[0].innerHTML = "Titre de l'image : <span style=color:var(--mainColor1);>" + imageChoisie['titre'] + "</span>";
+    zoomImgBloc.children[1].innerHTML = "Résumé : <br><span style=color:var(--mainColor1);>" + imageChoisie['description'] + "</span>";
 
-    console.log(zoomBloc.children[1].children[3].children[1]);
+    //console.log(zoomBloc.children[1].children[3].children[1]);
     zoomBloc.children[1].children[3].children[1].textContent = imageChoisie['likes'];
 
-    htmlReqUser(imageChoisie['id_user']);
-    zoomUserBloc.children[1].textContent = ""
+    htmlReqUser(imageChoisie['id_user']).then(dataUser => {
+        console.log(dataUser[0]);
+        racine.style.setProperty('--zoomImageUser', "url('" + dataUser[0]['avatar_utilisateur'] + "')");
+        zoomUserBloc.children[1].textContent = dataUser[0]['pseudo_utilisateur'];
+    }).catch(error => {
+        console.error(error);
+    });
+}
 
+// RECUP INFOS USER (image) //
+function htmlReqUser(id) {
+    return new Promise((resolve, reject) => {
+        let req = new XMLHttpRequest();
+
+        req.open("POST", "../model/zoom_image.php", true);
+        req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        req.onreadystatechange = function () {
+            if (req.readyState === XMLHttpRequest.DONE) {
+                if (req.status === 200) {
+                    resolve(JSON.parse(req.responseText));
+                } else {
+                    reject(req.statusText);
+                }
+            }
+        };
+        req.send("id=" + id);
+    });
 }
 
 function closeImageZoom() {
@@ -213,25 +237,8 @@ function closeImageZoom() {
     mts.classList.remove('active');
     document.body.style.overflowY = "visible";
 }
-// RECUP INFOS USER (image) //
-function htmlReqUser(id) {
-    let req = new XMLHttpRequest();
 
-    req.open("POST", "../model/zoom_image.php", true);
-    req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    req.onreadystatechange = function () {
-        if (req.readyState === XMLHttpRequest.DONE) {
-            if (req.status === 200) {
-                let data = JSON.parse(req.responseText);
-                console.log(data);
-            } else {
-                console.error(req.statusText);
-            }
-        }
-    };
-    req.send("id=" + id);
-}
-// RECUP INFOS PHP DEPUIS JS //
+// RECUP INFOS IMAGES PHP DEPUIS JS //
 function htmlReqImage(obj) {
     let req = new XMLHttpRequest();
     let id = obj['id'];
@@ -292,4 +299,4 @@ function repriseBook() {
         departBook = Date.now();
         animBook(false);
     }
-}
+}*/

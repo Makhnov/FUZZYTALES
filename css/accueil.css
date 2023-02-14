@@ -18,6 +18,8 @@
   --bookImgBack:"";
   --bookImgRight:"";
   --vitessePage:2.7s;
+  --zoomImage:"";
+  --zoomImageUser:"";
 }
 
 html, body {

@@ -18,6 +18,8 @@
   --bookImgBack:"";
   --bookImgRight:"";
   --vitessePage:2.7s;
+  --zoomImage:"";
+  --zoomImageUser:"";
 }
 
 @media screen and (max-width: 1000px) and (min-width: 600px) {

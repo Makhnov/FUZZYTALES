@@ -5,7 +5,6 @@
     <div id="imageOverlay" onclick="closeImageZoom()"></div>
     <div id ="containerZoom" class="modal imgZoom">
         <div class="modalImage">
-            <img src="../../divers/img/test2.jpg" alt="">
         </div>
 
         <div class="modalDesc">
@@ -15,7 +14,6 @@
 
             <div class="userDesc">
                 <div class="profileImg">
-                    <img src="../../divers/img/imgRFront.jpg" alt="">
                 </div>
                 <h2>Username</h2>
                 <button class="followUser">follow</button>
