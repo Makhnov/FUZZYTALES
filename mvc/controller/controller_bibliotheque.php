@@ -14,7 +14,6 @@ if(isset($_GET['search']) && !empty($_GET['search'])){
                 $datas = displayAllBySearch($bdd,$select2);
             }
         break;
-        
         //rechercher par catégorie
         case 'animaux':
         case 'sport':
@@ -30,7 +29,6 @@ if(isset($_GET['search']) && !empty($_GET['search'])){
         case 'autre':
             $datas = displayByCategory($bdd,$select1);
         break;
-
         //rechercher par tag
         case 'tag':
             if (isset($_GET['inputSearch'])){
