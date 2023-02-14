@@ -96,9 +96,9 @@ function search($bdd, $recherche)
 function getImgAlgo($bdd) {
     try {
         $PDO = connectNico($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
-        $data = $PDO->query("SELECT images.id_image, images.titre_image, images.url_image, images.date_image, images.description_image, images.id_utilisateur, images.id_tag, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC");
+        $data = $PDO->query("SELECT images.id_image, images.titre_image, images.url_image, images.date_image, images.description_image, images.id_utilisateur, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC");
         $data = $data->fetchAll();
-        
+        print_r($data);
         return $data;
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());

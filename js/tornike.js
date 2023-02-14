@@ -127,7 +127,25 @@ function closeModal(modal){
 }
 
 
+// RECUP INFOS USER (image) //
+function htmlReqMail(mail) {
+  return new Promise((resolve, reject) => {
+      let req = new XMLHttpRequest();
 
+      req.open("POST", "../model/zoom_image.php", true);
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      req.onreadystatechange = function () {
+          if (req.readyState === XMLHttpRequest.DONE) {
+              if (req.status === 200) {
+                  resolve(JSON.parse(req.responseText));
+              } else {
+                  reject(req.statusText);
+              }
+          }
+      };
+      req.send("mail=" + mail);
+  });
+}
 
 
 

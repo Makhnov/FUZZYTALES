@@ -39,105 +39,43 @@
             </div>
         </div>
     </section>
-    <section class="gallerySect">
-        <div class="gallery">
-            <div class="card">
-                <div class="cardContent">
-                    <img src="divers/img/test.jpg" alt="">
-                    <div class="tags">
-                        <ul>
-                            <li><a href="">something1</a></li>
-                            <li><a href="">something2</a></li>
-                            <li><a href="">something3</a></li>
-                            <li><a href="">something4</a></li>
-                            <li><a href="">something5</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ionic">
-                    <ion-icon name="thumbs-up-outline"></ion-icon>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                    <ion-icon name="cloud-download-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div class="cardContent">
-                    <img src="divers/img/test2.jpg" alt="">
-                    <div class="tags">
-                        <ul>
-                            <li><a href="">something1</a></li>
-                            <li><a href="">something2</a></li>
-                            <li><a href="">something3</a></li>
-                            <li><a href="">something4</a></li>
-                            <li><a href="">something5</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ionic">
-                    <ion-icon name="thumbs-up-outline"></ion-icon>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                    <ion-icon name="cloud-download-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div class="cardContent">
-                    <img src="divers/img/1.jpg" alt="">
-                    <div class="tags">
-                        <ul>
-                            <li><a href="">something1</a></li>
-                            <li><a href="">something2</a></li>
-                            <li><a href="">something3</a></li>
-                            <li><a href="">something4</a></li>
-                            <li><a href="">something5</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ionic">
-                    <ion-icon name="thumbs-up-outline"></ion-icon>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                    <ion-icon name="cloud-download-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div class="cardContent">
-                    <img src="divers/img/1.jpg" alt="">
-                    <div class="tags">
-                        <ul>
-                            <li><a href="">something1</a></li>
-                            <li><a href="">something2</a></li>
-                            <li><a href="">something3</a></li>
-                            <li><a href="">something4</a></li>
-                            <li><a href="">something5</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ionic">
-                    <ion-icon name="thumbs-up-outline"></ion-icon>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                    <ion-icon name="cloud-download-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div class="cardContent">
-                    <img src="divers/img/1.jpg" alt="">
-                    <div class="tags">
-                        <ul>
-                            <li><a href="">something1</a></li>
-                            <li><a href="">something2</a></li>
-                            <li><a href="">something3</a></li>
-                            <li><a href="">something4</a></li>
-                            <li><a href="">something5</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ionic">
-                    <ion-icon name="thumbs-up-outline"></ion-icon>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                    <ion-icon name="cloud-download-outline"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php 
+        echo "<section class="."gallerySect".">";
+        echo "<div class="."gallery".">";
+        $i=0;
+        while(isset($datas[$i])){
+                echo "<div class="."card".">";
+                    echo "<div class="."cardContent".">";
+                        echo "<img src=".$datas[$i]['url_image'].">";
+                        echo "<div class="."tags".">";
+                            echo "<ul>";
+                            //convert tags of each image into string
+                            $keys = ($datas[$i]['tags']); 
+                            // split tags by ","
+                            $tags = explode(",", $keys); 
+                            // create <li> for each tag
+                            foreach ($tags as $tag) {
+                                //redirect 
+                            $redirect = "http://localhost/fuzzytales/FUZZYTALES/mvc/controller/controller_bibliotheque.php?inputSearch=".$tag."&search=all";
+                                //redirect
+                            echo "<li>"; 
+                            echo '<a href="'.$redirect.'">'. $tag ."</a>";
+                            echo "</li>";
+                            }
+                            echo "</ul>";
+                        echo "</div>";
+                    echo "</div>";
+                    echo "<div class="."ionic".">";
+                        echo "<ion-icon name="."thumbs-up-outline"."></ion-icon>";
+                        echo "<ion-icon name="."bookmark-outline"."></ion-icon>";
+                        echo "<ion-icon name="."cloud-download-outline"."></ion-icon>";
+                    echo "</div>";
+                echo "</div>";
+            $i+=1;
+        }
+        echo "</div>";
+        echo "</section>";
+        ?>
     <!-- image modal -->
     <div class="modal imgZoom">
         <div class="modalImage">
