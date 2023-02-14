@@ -70,7 +70,7 @@
                             // create <li> for each tag
                             foreach ($tags as $tag) {
                                 //redirect 
-                            $redirect = "http://localhost/fuzzytales/FUZZYTALES/mvc/controller/controller_bibliotheque.php?inputSearch=".$tag."&search=all";
+                            $redirect = "controller_bibliotheque.php?inputSearch=".$tag."&search=all";
                                 //redirect
                             echo "<li>"; 
                             echo '<a href="'.$redirect.'">'. $tag ."</a>";
