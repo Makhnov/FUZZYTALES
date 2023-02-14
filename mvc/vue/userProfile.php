@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/tornike.css">
+    <link rel="stylesheet" href="../../css/tornike.css"/>
     <title>Document</title>
 </head>
 
@@ -14,10 +15,10 @@
     <section class="userProfile">
         <div class="user">
             <div class="userImg">
-                <img src="divers/img/profilePic.png" alt="">
+                <img src= "<?php print_r($datas)?>" alt=""> 
             </div>
             <div class="userName">
-                <h3>@Username</h3>
+                <h3></h3>
             </div>
             <button class="followUser">
                 follow

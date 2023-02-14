@@ -1,4 +1,5 @@
 <?php // <!-------------------------------- CONTROLEUR PRINCIPAL --------------------------------> //
+    include('../controller/filters.php'); // VARIABLES PHP
     include('../model/connect.php'); // CONNEXION BDD
     include('../model/get.php'); // INTERACTION BDD GETTERS
     include('../model/set.php'); // INTERACTION BDD SETTERS

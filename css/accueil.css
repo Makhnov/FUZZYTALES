@@ -17,7 +17,9 @@
   --bookImgFront:"";
   --bookImgBack:"";
   --bookImgRight:"";
-  --vitessePage:4.7s;
+  --vitessePage:2.7s;
+  --zoomImage:"";
+  --zoomImageUser:"";
 }
 
 html, body {

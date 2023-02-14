@@ -1,4 +1,28 @@
 @charset "UTF-8";
+:root {
+  --mainColor0:rgb(245, 80, 80);
+  --mainColor0F:rgba(245, 80, 80, 0.8);
+  --mainColor1:rgb(245, 220, 220);
+  --sideColor0:rgb(21, 1, 54);
+  --sideColor1:rgb(41, 23, 81);
+  --sideColor2:rgb(61, 42, 108);
+  --mainColor0L:rgba(245, 80, 80, .65);
+  --mainColor1L:rgba(245, 220, 220, .65);
+  --sideColor0L:rgba(21, 1, 54, .5);
+  --sideColor1L:rgba(41, 23, 81, .5);
+  --sideColor2L:rgba(61, 42, 108, .5);
+  --bookSize:clamp(200px, 50vh, 600px);
+  --bookBorder:rgb(50, 50, 50);
+  --bookPage:whitesmoke;
+  --bookImgLeft:"";
+  --bookImgFront:"";
+  --bookImgBack:"";
+  --bookImgRight:"";
+  --vitessePage:2.7s;
+  --zoomImage:"";
+  --zoomImageUser:"";
+}
+
 /* 
 ███    ███  ██████  ██████   █████  ██      
 ████  ████ ██    ██ ██   ██ ██   ██ ██      
@@ -31,10 +55,10 @@
   position: absolute;
   display: flex;
   z-index: 500;
-  top: 10vh;
-  left: 10vw;
-  width: 80vw;
-  height: 80vh;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
   background-color: rgb(155, 155, 155);
 }
 #imageZoom.active #closeImage {
@@ -63,30 +87,31 @@
   background: rgba(0, 0, 0, 0.75);
   -webkit-backdrop-filter: blur(1.5px);
           backdrop-filter: blur(1.5px);
-  pointer-events: none;
+  cursor: crosshair;
 }
 
 #imageZoom.active #containerZoom .modalImage {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 0, 0);
-  width: 75%;
-  height: 100%;
-}
-#imageZoom.active #containerZoom .modalImage img {
-  max-width: 100%;
-  max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  background: var(--zoomImage);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60vw;
+  height: 90vh;
 }
 #imageZoom.active #containerZoom .modalDesc {
-  width: 25%;
-  height: 100%;
-  background-color: rgb(214, 214, 214);
+  width: 30vw;
+  height: 90vh;
+  background-color: var(--mainColor0F);
+  display: grid;
+  grid-template-rows: 0px 10vh 30vh calc(50vh - 30px);
+  row-gap: 10px;
 }
 #imageZoom.active #containerZoom .closeModal {
-  height: 40px;
+  height: 0px;
+  grid-row: 1;
 }
 #imageZoom.active #containerZoom .closeModal button {
   all: unset;
@@ -99,21 +124,29 @@
   cursor: pointer;
 }
 #imageZoom.active #containerZoom .userDesc {
+  grid-row: 2;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   margin: 10px 5%;
 }
+#imageZoom.active #containerZoom .userDesc h2 {
+  padding: 50px;
+  width: calc(100% - 50px);
+}
 #imageZoom.active #containerZoom .modalDesc .profileImg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
+  min-width: 150px;
+  min-height: 150px;
   border-radius: 50%;
+  background: var(--zoomImageUser);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 #imageZoom.active #containerZoom .imgDesc {
+  grid-row: 3;
   display: flex;
   flex-direction: column;
   margin: 30px 5%;
@@ -125,4 +158,15 @@
   padding: 5px 10px;
   border-radius: 15px;
   cursor: pointer;
+}
+#imageZoom.active #containerZoom .likes {
+  grid-row: 4;
+  height: 100%;
+  display: grid;
+  cursor: pointer;
+}
+#imageZoom.active #containerZoom .likes img, #imageZoom.active #containerZoom .likes span {
+  position: absolute;
+  align-self: center;
+  justify-self: center;
 }/*# sourceMappingURL=zoom.css.map */
