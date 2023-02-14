@@ -82,14 +82,14 @@ function ajoutCategorie($bdd, $nom_categorie)
 
 //Upload une photo
 
-function ajoutImage($bdd,$titre_image,$url_image,$date_image,$description_image,$id_utilisateur){
+function ajoutImage($bdd,$titre_image,$url_image,$description_image,$id_utilisateur){
     try{
-        $requete = $bdd->prepare("INSERT INTO images(titre_image, url_image, date_image, description_image, id_utilisateur) VALUES (:titre_image, :url_image, :date_image, :description_image, :id_utilisateur)");
+        $requete = $bdd->prepare("INSERT INTO images(titre_image, url_image, description_image, id_utilisateur) VALUES (:titre_image, :url_image, :description_image, :id_utilisateur)");
 
         $requete->execute(array(
             'titre_image' => $titre_image,
             'url_image' => $url_image,
-            'date_image' => $date_image,
+        
             'description_image' => $description_image,
             'id_utilisateur' => $id_utilisateur
         ));

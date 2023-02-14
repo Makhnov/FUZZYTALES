@@ -66,5 +66,17 @@ $pseudo = $datas['pseudo_utilisateur'];
 
 include('../vue/userProfile.php');
 
+if(isset($_POST['titre_image']) && isset($_POST['description_image']) && isset($_POST['url_image'])){
 
+    //Test champs remplis
+    if(!empty($_POST['titre_image']) && !empty($_POST['description_image']) && !empty($_POST['url_image'])){
+
+            //Extraction des données
+            extract($_POST);
+            include('../model/set.php');
+            ajoutImage($bdd,$titre_image,$url_image,$description_image,$id_utilisateur);
+            //recharge la page et empeche la création de duplicata de données
+            header('Location: controller_signUp.php');
+    }
+}
 ?>
