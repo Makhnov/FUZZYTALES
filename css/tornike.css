@@ -121,6 +121,7 @@ img.portrait {
     max-height: auto;
     width:100%; 
 }
+
 .cardContent {
     display: flex;
     justify-content: center;
@@ -137,7 +138,7 @@ img.portrait {
     align-items: center;
     position: absolute;
     overflow-x: hidden;
-    background-color: grey;
+    background-color: rgba(165, 165, 165, 0.7);
     height: 30px;
     width: 100%;
     bottom: 0;
@@ -170,7 +171,7 @@ a:visited {
     color: white;
 }
 .tags ul a{
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(245, 80, 80, 1);
     border-radius: 5px;
     padding: 3px 10px;
     text-decoration: none;
@@ -206,8 +207,16 @@ footer {
     background-color: #F55050;
     margin-top: 30px;
 }
-
-
+/* user profile upload image */
+.card.upload .cardContent{
+    font-size: 128px;
+    cursor: pointer;
+    color: #F55050;
+    background-color: rgba(0, 0, 0, .1);
+}
+.modal.userAcc.upload{
+    background-color: rgb(97, 97, 97);
+}
 /* 
 //   ██████   █████  ██      ██      ███████ ██████  ██    ██ 
 //  ██       ██   ██ ██      ██      ██      ██   ██  ██  ██  
@@ -460,7 +469,11 @@ footer {
 .connectWrapper .previousPage button ion-icon{
     font-size: 3rem;
 }
-
+.connectWrapper .loginError {
+    position: absolute;
+    bottom: 15%;
+    color: white;
+}
 .logIn, .signUp {
     display: flex;
     flex-direction: column;
@@ -501,15 +514,22 @@ footer {
 .signUp form button:focus, .signUp form button:hover {
     box-shadow: 0px 0px 5px 3px rgba(255, 255, 255, 0.8);
 }
-.logIn form input, .signUp form input {
+.logIn form input,
+.logIn form textarea, 
+.signUp form input {
     all: unset;
     border-bottom: 2px solid #F55050;
     margin-bottom: 20px;
     padding: 2px 10px;
     caret-color: white;
 }
+.logIn form textarea {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
 .logIn form input:not(:placeholder-shown), 
-.signUp form input:not(:placeholder-shown){
+.signUp form input:not(:placeholder-shown),
+.logIn form textarea:not(:placeholder-shown){
     border-bottom: 2px solid rgb(255, 255, 255);
 }
 /* if input is active, has text or doesn't have placeholder */
@@ -548,11 +568,11 @@ input:-webkit-autofill:active {
 
 
 /*
- ██    ██ ███████ ███████ ██████       █████   ██████  ██████ 
-██    ██ ██      ██      ██   ██     ██   ██ ██      ██      
-██    ██ ███████ █████   ██████      ███████ ██      ██      
-██    ██      ██ ██      ██   ██     ██   ██ ██      ██      
- ██████  ███████ ███████ ██   ██     ██   ██  ██████  ██████ 
+ ██    ██ ███████ ███████ ██████  
+██    ██ ██      ██      ██   ██        
+██    ██ ███████ █████   ██████         
+██    ██      ██ ██      ██   ██        
+ ██████  ███████ ███████ ██   ██     
 */
 .profileWrapper {
     width: 100vw;
@@ -691,7 +711,7 @@ input:-webkit-autofill:active {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     pointer-events: none;
 }

@@ -14,15 +14,18 @@ const headerColorAfter = getComputedStyle(racine).getPropertyValue('--mainColor0
 const slices = document.getElementsByClassName('sliceR');
 
 class imgFuzzy {
+<<<<<<< HEAD
     constructor(id, titre, url, date,
         description, id_user, tag, likes) {
+=======
+    constructor(id, titre, url, date, description, id_user, likes) {
+>>>>>>> 8068486e88805403d9a33d21616bf0f976c5ac6e
         this.id = id;
         this.titre = titre;
         this.url = url;
         this.date = date;
         this.description = description;
         this.id_user = id_user;
-        this.tag = tag;
         this.likes = likes;
     }
 }
@@ -87,13 +90,18 @@ function PHPtoJS(tab, str) {
         let image = new Image();
         image.src = tab[i]['url_image'];
 
+<<<<<<< HEAD
         objImgTemp = new imgFuzzy(
             tab[i][0], tab[i][1], image.src,
             tab[i][3], tab[i][4], tab[i][5],
             tab[i][6], tab[i][7], tab[i][8]);
+=======
+        objImgTemp = new imgFuzzy(tab[i][0], tab[i][1], image.src, tab[i][3], tab[i][4], tab[i][5], tab[i][6], tab[i][7]);
+>>>>>>> 8068486e88805403d9a33d21616bf0f976c5ac6e
         tabAccueil.push(objImgTemp);
+        console.log(tab[i][i]);
     }
-
+    console.log (tabAccueil);
     return eval(str + "(" + JSON.stringify(tabAccueil) + ")");
 }
 

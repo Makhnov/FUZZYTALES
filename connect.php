@@ -18,6 +18,13 @@
                 Previous Page
             </button>
         </div>
+        <div class="loginError">
+            <p>
+                <?php
+                $loginError;
+                ?>
+            </p>
+        </div>
         <div class="logIn">
             <h1>Log in</h1>
             <form action="controller_login.php" method="post">

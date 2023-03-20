@@ -78,7 +78,14 @@ function nbAbonnes($bdd, $id_utilisateur, $utilisateur_suiveur)
 function search($bdd, $recherche)
 {
     try {
-        $requete = $bdd->prepare("SELECT :pseudo_utilisateur from utilisateurs where pseudo_utilisateur LIKE :recherche");
+        $requete = $bdd->prepare("SELECT utilisateurs.pseudo_utilisateur, tags.nom_tag, categories.nom_categorie from utilisateurs
+        inner join images
+        on utilisateurs.id_utilisateur = images.id_utilisateur
+        inner join appartenir
+        on images.id_image = appartenir.id_image
+        inner join categories
+        on appartenir.id_categorie = categorie.id_categorie
+        where pseudo_utilisateur LIKE :recherche");
         $requete->execute(array(
             'recherche' => "%$recherche%"
         ));
@@ -96,9 +103,9 @@ function search($bdd, $recherche)
 function getImgAlgo($bdd) {
     try {
         $PDO = connectNico($bdd, 'root', '', true); // On se connecte à la BDD (plus d'infos : mvc/model/connect.php). 
-        $data = $PDO->query("SELECT images.id_image, images.titre_image, images.url_image, images.date_image, images.description_image, images.id_utilisateur, images.id_tag, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC");
+        $data = $PDO->query("SELECT images.id_image, images.titre_image, images.url_image, images.date_image, images.description_image, images.id_utilisateur, COUNT(aimer.id_image) AS 'Likes' from images INNER JOIN aimer ON images.id_image = aimer.id_image GROUP BY images.id_image ORDER BY COUNT(aimer.id_image) DESC");
         $data = $data->fetchAll();
-        
+        print_r($data);
         return $data;
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());

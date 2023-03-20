@@ -17,7 +17,7 @@ function ajoutUtilisateur($bdd, $pseudo_utilisateur, $mail_utilisateur, $mdp)
     }
 }
 function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
-    
+        $loginError = "";
       try {
    
         // Prepare the SQL statement
@@ -28,20 +28,21 @@ function connexion($bdd,$mail_utilisateur,$mdp_utilisateur){
     
         // Fetch the result
         $result = $requete->fetch();
-        print_r($result);
         if ($result) {
             if(password_verify($mdp_utilisateur,$result['mdp_utilisateur'])){
                 session_start();
                 $_SESSION['logged_in'] = true;
                 $_SESSION['mail_utilisateur'] = $mail_utilisateur;
-                header("Location:../controller/controller_bibliotheque.php");
+                header("Location:../controller/controller_profile.php?mail=$mail_utilisateur");
           
             }else {
                 // Login failed
-                echo "Votre email ou mot de passe est incorrect";
+                $loginError = "Votre email ou mot de passe est incorrect";
         } 
         }
+       
         return $_SESSION['logged_in'];
+        $requete->closeCursor();
         
       } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
@@ -81,14 +82,14 @@ function ajoutCategorie($bdd, $nom_categorie)
 
 //Upload une photo
 
-function ajoutImage($bdd,$titre_image,$url_image,$date_image,$description_image,$id_utilisateur){
+function ajoutImage($bdd,$titre_image,$url_image,$description_image,$id_utilisateur){
     try{
-        $requete = $bdd->prepare("INSERT INTO images(titre_image, url_image, date_image, description_image, id_utilisateur) VALUES (:titre_image, :url_image, :date_image, :description_image, :id_utilisateur)");
+        $requete = $bdd->prepare("INSERT INTO images(titre_image, url_image, description_image, id_utilisateur) VALUES (:titre_image, :url_image, :description_image, :id_utilisateur)");
 
         $requete->execute(array(
             'titre_image' => $titre_image,
             'url_image' => $url_image,
-            'date_image' => $date_image,
+        
             'description_image' => $description_image,
             'id_utilisateur' => $id_utilisateur
         ));
